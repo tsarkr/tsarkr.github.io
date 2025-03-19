@@ -2,122 +2,137 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# 일반사항
 
-[Link to another page](./another-page.html).
+## 보유기술
+* 정보시스템 구축 및 운영 관리
+* 사업계획서 및 각종 보고서 작성
+* 요구 수집 분석을 통한 요구사항 명세화
+* 정보화 사업관리(PMO)
+* 정보화사업 컨설팅
 
-There should be whitespace between paragraphs.
+## 업무분야
+* 정보시스템 기획, 설계, 구축, 프로젝트관리 등
+* 내부 정보화 컨설팅
+* 정보화관련 외부기관 협력
+* 개인정보보호
+* 기관 데이터관리
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## 현재 진행 중인 업무
+* 소속기관 데이터 정책수립 및 데이터 분석
 
-# Header 1
+---
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+# 국가유산진흥원
 
-## Header 2
+## 주요업무
+* 기관의 정보화 현황을 분석하여 중장기 방향설정 및 예산계획 수립
+* 기관내 정보화 요구사항 분석, 의견 조율
+* 개별 시스템 기능분석 및 설계
+* 구축대상 시스템 개발원가 산정 및 제안요청서/과업지시서 작성
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+## 정보시스템 추진 실적
+* 2022년 - 2023년 청와대 개방 온라인시스템 총괄
+* 2023년 데이터관리업무시스템 1단계 구축 총괄
+* 2021년 한국의집 영업지원 시스템 구축 총괄
+* 2021년 데이터관리체계 수립 연구 ISP 총괄
+* 2020년 한국문화재재단 통합 홈페이지 구축 감독(통합구축반 반장)
+* 2019년 한국문화재재단 ICT 현황분석과 방향제시 컨설팅 총괄
+* 2019년 문화유산채널 사이트 기획
+* 2018년 온라인 방송시스템(OTT) 구축 설계 및 감독
+* 2018년 그룹웨어(전자문서) 개선사업 감독
+* 2018년 통합 DBMS 시스템 도입 기획 및 사업 감독
+* 2017년 가상데스크톱(VDI) 시스템 도입 사업 감독    
+* 2016년 정보보안 관제시스템  기획 및 구축 감독
+* 2015년 사업장관리(POS)시스템  / 물류관리(SCM)시스템 개발 지원
+* 2015년 UCI기반 영상분할 시스템 사업 감독(저작권위원회 투자사업 직접 유치)
+* 2014년 UCI 기반 저작물관리시스템 설계 및 사업 감독
+* 2012년 고객관계관리시스템(CRM) 개발 지원
+* 2011년 창덕궁이야기 어플 개발 사업 감독
+* 2009년 - 2010년 사업장관리시스템(POS) 운영 담당 
 
-### Header 3
+## 정보화 기획 업무
+* (前)국가유산진흥원 범정부EA 담당자 
+* (前)국가유산진흥원 공공데이터 담당자 
+* (前)국가유산진흥원 개인정보보호 담당자
+* 2020년 한국문화재재단 기록관리시스템 설계 지원
+* 2018년 한국문화재재단 중장기 정보화전략계획(ISP) 자체 수립
+* 2017년 클라우드전환 컨설팅 (정보화진흥원 지원) 담당
+* 2014년 저작물관리시스템 콘텐츠 관리체계 및 업무 프로세스 설계
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+## 대외 연계 사업
+* 2015년 쿠팡/코네스트 관광상품과 콘텐츠 연계 협력
+* 2015년 저작권위원회 워크숍 UCI 도입 사례 발표
+* 2014년 문화유산분야 UCI 발급기관 등록(저작권위원회)
+* 2014년 컬처링 콘텐츠 연계(콘텐츠진흥원) 
+* 2014년 교육방송, 복지TV, 아리랑TV 등 방송 협약 추진 
+* 2014년 애플TV 실시간 방송 서비스 론칭
+* 2013년 로얄코펜하겐 업무협약 담당
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+## 기타 경험 사항
+* 공공기관 정보화사업 심사 및 자문 활동
+* 2015년 한국문화재재단 홈페이지 담당자 채용 면접관
+* 2015년 유네스코 세계시민교육행사 국빈 대상 문화유산 전시 부스 총괄(교육부 협력업무)
+* 2014년 문화재청 헤리티지채널 사업 인수 담당
+* 2013년 한국문화재재단 대학생 기자단 운영 담당(온라인채널 홍보)
+* 2013년 스타벅스 후원 오감만족 K-heritage 체험 행사 기획 및 운영 총괄(스타벅스 협력업무)
+* 2012년 한국문화재재단 홍보영상 제작 총괄
 
-#### Header 4
+## 공공 정보화사업 심의 활동
+* 조달청 일반용역 심의 위원
+* KISA 한국인터넷진흥원 심의 위원
+* NIPA 정보통신산업진흥원 심의 위원
+* IITP 정보통신기획평가원 심의 위원
+* 공공기관 정보화사업 심의 활동
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+---
 
-##### Header 5
+# 이전 경력
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+## 온라인서비스 운영관리 PM
+* (2008년-2009년)브레넥스(u-Health 파트 담당)
 
-###### Header 6
+## 데이터베이스 서비스 개발
+* (2007년-2008년)프리랜서 개발자, 율시스템
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+## 임베디드 시스템 개발
+* (2004년-2007년)밸테크, 씨티콤(터보테크 분사)
 
-### There's a horizontal rule below this.
+## Direct X 프로그램 개발
+* (2002년-2004년)프리랜서 개발자
 
-* * *
+---
 
-### Here is an unordered list:
+# 기타사항
+## 수상
+* (과학기술정보통신부 장관상) 2022년 상반기 SW사업 우수발주자
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+## 학력
+### 한국학대학원
+* 박사과정 | 인문정보학
+* 2024 - 현재 재학 중
+* 프롬프트 엔지니어링
+* 텍스트 마이닝 기반의 인공지능 프로그래밍
 
-### And an ordered list:
+### 광운대학교 일반대학원
+* 석사 | 컴퓨터공학
+* 2002 - 2004
+* MPEG-7
+* ITS(지능형교통시스템)
+* 디지털콘텐츠 데이터베이스
 
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
+### 남서울대학교
+* 학사 | 전자계산학
+* 1996 - 2002
 
-### And a nested list:
+## 논문
+### 영역기반 영상 처리를 이용한 차량 대기열 측정에 관한 연구(공동참여)
+* 한국ITS학회 2002년도 제1회 정기총회 및 학술대회
+### 논리 연산을 이용한 주행차량 분할 및 추적에 관한 연구(제1저자)
+* 한국멀티미디어학회 2004년도 춘계학술발표대회논문집
+### 논리연산을 이용한 주행차량 분할 및 추적에 관한 연구
+* 광운대학교 컴퓨터공학과 석사학위 논문
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+## 자격증
+* 정보처리기사
+* 정보시스템 감리원
