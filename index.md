@@ -2,6 +2,8 @@
 layout: default
 ---
 
+[Link to another page](./another-page.html).
+
 # 일반사항
 
 ## 보유기술 --
