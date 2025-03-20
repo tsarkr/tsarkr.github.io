@@ -1,3 +1,3 @@
 # Gyungmin's Home
 
-(조경민 홈페이지)[https://tsarkr.gihub.io]
+조경민 홈페이지[https://tsarkr.gihub.io]
