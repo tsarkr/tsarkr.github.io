@@ -2,8 +2,6 @@
 layout: post
 ---
 
-## Welcome to another page
-
-_yay_
+## 박사과정생 연구기록
 
 [back](./)
