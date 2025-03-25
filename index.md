@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[Link to another page](./another-page.html).
+[박사과정생 연구기록](./another-page.html).
 
 # 일반사항
 
