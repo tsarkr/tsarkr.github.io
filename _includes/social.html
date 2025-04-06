@@ -1,9 +1,8 @@
-{% if site.social and site.social.links %}
+{% assign github_url = site.github_username | default: site.github %}
+{% if github_url %}
   <nav id="social">
     <ul>
-      {% for url in site.social.links %}
-        <li><a href="{{ url }}" target="_blank">My Github</a></li>
-      {% endfor %}
+      <li><a href="https://github.com/{{ github_url }}" target="_blank">My GitHub</a></li>
     </ul>
   </nav>
 {% endif %}
