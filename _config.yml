@@ -5,7 +5,7 @@ description: 조경민 (Gyungmin Jo) <br/>
   Working at the Korea Heritage Agency <br/>
   한국학중앙연구원 박사과정 <br/>
   Ph.D. Student at the Academy of Korean Studies <br/>
-  email_ jo.gyungmin@gmail.com <br/>
+  email: jo.gyungmin@gmail.com <br/>
 show_downloads: false
-google_analytics:
-theme: jekyll-theme-minimal
+#google_analytics:
+#theme: jekyll-theme-minimal
