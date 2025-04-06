@@ -1,0 +1,9 @@
+{% if site.social and site.social.links %}
+  <nav id="social">
+    <ul>
+      {% for url in site.social.links %}
+        <li><a href="{{ url }}" target="_blank">My Github</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
