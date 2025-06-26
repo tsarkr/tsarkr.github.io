@@ -6,6 +6,12 @@ layout: default
 
 [back](./)
 
+# Visualizing "Korea" on YouTube
+[Explore the Interactive Dashboard](https://tsarkr-rsth3qwukils5ys8xi9sfq.streamlit.app/)
+
+This project offers an in-depth analysis of YouTube videos resulting from searches for "Korea." 
+It visualizes key trends, popular topics, and viewer engagement to uncover how Korea is represented and perceived on the global stage.
+
 # Shortener 11e
 [Short URL service](https://11e.kr)
 
