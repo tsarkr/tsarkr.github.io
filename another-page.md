@@ -24,7 +24,7 @@ It provides a service that converts long URLs into shorter, memorable links.
 
 Comment Analysis of the K-heritage.tv YouTube Channel
 
-[텍스트마이닝을 이용한 국가유산채널 영상콘텐츠 수용자 반응 분석.pdf](https://tsasr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
+[텍스트마이닝을 이용한 국가유산채널 영상콘텐츠 수용자 반응 분석.pdf](https://tsarkr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
 
 
 # RedditGo
