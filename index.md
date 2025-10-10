@@ -3,7 +3,7 @@ layout: default
 ---
 
 [박사과정생 연구기록](./another-page.html).
-[어플 하루Diary](./harudiary.html).
+[어플 하루성장노트](./harudiary.html).
 
 # 일반사항
 
