@@ -146,7 +146,7 @@ layout: default
 - **Conference:** 2004 Spring Conference Proceedings
 
 ### A Study on Moving Vehicle Segmentation and Tracking Using Logic Operations (Jo, Gyungmin)
-- **Thesis:** Thesis: Master's Thesis, Department of Computer Engineering, Kwangwoon University
+- **Thesis:** Master's Thesis, Department of Computer Engineering, Kwangwoon University
 
 ## Certifications --
 * Engineer Information Processing (Human Resources Development Service of Korea)
