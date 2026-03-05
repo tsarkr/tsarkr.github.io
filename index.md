@@ -129,7 +129,14 @@ layout: default
 * 1996 - 2002
 * 창업동아리 A-SHELL 대표
 
+## 출판 --
+- [**선행 온톨로지 모델 탐색 - 디지털인문학 시리즈**](https://wikidocs.net/book/8452)
+- [**고급 자연어 처리 활용 - 디지털인문학 시리즈**](https://wikidocs.net/book/17854)
+
 ## 논문 목록 --
+
+### Unlike simple text conversion, this dataset follows the TEI (Text Encoding Initiative) P5 guidelines. It includes detailed metadata, character descriptions, linguistic variations (Hanja/Hangul), and semantic tagging.
+- **데이터** [KNoTE](https://zenodo.org/records/18835058)
 
 ### 경계의 상상력, K-콘텐츠의 미래를 열다: ｢케이팝 데몬 헌터스｣에 나타난 디아스포라의 한국학적 상상력 (조경민)
 - **학술지** [디아스포라연구 제19권 제2호(제38집) 164~199쪽](https://tsarkr.github.io/경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)

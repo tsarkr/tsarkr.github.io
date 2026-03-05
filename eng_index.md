@@ -129,7 +129,15 @@ layout: default
 * 1996 - 2002
 * Representative of Startup Club 'A-SHELL'
 
+## Publications --
+- [**Exploring Prior Ontology Models - Digital Humanities Series**](https://wikidocs.net/book/8452)
+- [**Advanced Natural Language Processing Applications - Digital Humanities Series**](https://wikidocs.net/book/17854)
+
+
 ## Publications (Papers) --
+
+### Unlike simple text conversion, this dataset follows the TEI (Text Encoding Initiative) P5 guidelines. It includes detailed metadata, character descriptions, linguistic variations (Hanja/Hangul), and semantic tagging.
+- **Data** [KNoTE](https://zenodo.org/records/18835058)
 
 ### Imagination of the Border, Opening the Future of K-Content: The Korean Studies Imagination of Diaspora in ｢K-Pop Demon Hunters｣ (Jo, Gyungmin)
 - **Journal:** [Diaspora Studies Vol. 19, No. 2 (Issue 38), pp. 164~199](https://tsarkr.github.io/경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
