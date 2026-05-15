@@ -161,3 +161,46 @@ layout: default
 * Information System Auditor
 
 ---
+
+# GitHub Projects
+
+## Darkstar: Professional OWL 2 RL Ontology Editor
+* **Language:** Rust
+* **Description:** Darkstar is a high-performance, professional-grade ontology editor and inference engine built with Rust. It provides a visual and intuitive interface for managing complex OWL 2 RL ontologies with real-time reasoning and state-of-the-art graph visualization capabilities.
+* **Key Features:**
+  - Professional Reasoning Engine: Full OWL 2 RL compliance with high-performance parallel forward-chaining using Rayon
+  - State-of-the-Art Graph Visualization: Multiple layout support (Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid)
+  - Smart Z-index management and collision avoidance algorithms
+* **GitHub:** https://github.com/tsarkr/darkstar
+
+## K-Heritage Content Analysis
+* **Language:** Python
+* **Description:** A project that analyzes YouTube comments from the K-heritage.tv channel, examining audience reception of Korean cultural heritage content using text mining techniques.
+* **GitHub:** https://github.com/tsarkr/k-heritage
+
+## K-pop Demon Hunters
+* **Language:** Python
+* **Description:** K-pop content analysis project
+* **GitHub:** https://github.com/tsarkr/K-D-H
+
+## KCI Scrape
+* **Language:** Python
+* **Description:** A tool for collecting and analyzing Korean Citation Index (KCI) academic papers
+* **GitHub:** https://github.com/tsarkr/kci_scrape
+
+## Docent
+* **Language:** Python
+* **Description:** A knowledge transfer and educational platform
+* **GitHub:** https://github.com/tsarkr/docent
+
+## URL Shortener
+* **Language:** PHP
+* **Description:** A PHP-based URL shortening service
+* **GitHub:** https://github.com/tsarkr/shortener_11e
+
+## Reddit Dataset Analysis
+* **Language:** Jupyter Notebook
+* **Description:** Reddit Comments Dataset analysis - @Korea @China @Japan related data analysis
+* **GitHub:** https://github.com/tsarkr/redditgo
+
+---
