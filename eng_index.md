@@ -139,10 +139,10 @@ layout: default
 ### Unlike simple text conversion, this dataset follows the TEI (Text Encoding Initiative) P5 guidelines. It includes detailed metadata, character descriptions, linguistic variations (Hanja/Hangul), and semantic tagging.
 - **Data** [KNoTE](https://zenodo.org/records/18835058)
 
-### Imagination of the Border, Opening the Future of K-Content: The Korean Studies Imagination of Diaspora in ｢K-Pop Demon Hunters｣ (Jo, Gyungmin)
+### The Imagingation of the Border, Openning the Future of K-Content: A Study on the Korean Studies Imagination of Diaspora in ｢K-Pop Demon Hunters｣ (Jo, Gyungmin)
 - **Journal:** [Diaspora Studies Vol. 19, No. 2 (Issue 38), pp. 164~199](https://tsarkr.github.io/경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
 
-### Analysis of Audience Reaction to Korea Heritage Channel Video Content Using Text Mining: Focusing on YouTube Comments (Jo, Gyungmin)
+### Analyzing Audience Responses to K-Heritage Channel Video Content Using Text Mining: Focusing on YouTube Comments (Jo, Gyungmin)
 - **Journal:** [Media Convergence Research Issue 38, pp. 7~50](https://tsarkr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
 
 ### A Study on Vehicle Queue Measurement Using Region-Based Image Processing (Chu, Yeon-woong; Jo, Gyungmin; Choi, Ki-ho)
