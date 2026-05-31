@@ -7,59 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome CDN 교체: 캔버스 보안(CORS) 환경에서도 아이콘이 표시되도록 JSDelivr 사용 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" crossorigin="anonymous">
     <style>
         /* CORE DESIGN PRINCIPLES */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            background-color: #020617;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Inter', sans-serif;
-            color: #f8fafc;
-            overflow: hidden;
-        }
-
-        .presentation-wrapper {
-            position: relative;
-            width: 1280px;
-            height: 720px;
-            background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 1px solid #1e293b;
-            overflow: hidden;
-        }
-
-        /* Abstract Background Elements */
-        .presentation-wrapper::before, .presentation-wrapper::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .presentation-wrapper::before {
-            top: -150px; right: -150px; width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0,0,0,0) 70%);
-        }
-        .presentation-wrapper::after {
-            bottom: -200px; left: -100px; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, rgba(0,0,0,0) 70%);
-        }
-
-        .slide {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            padding: 60px 80px;
-            display: flex; flex-direction: column; justify-content: flex-start;
-            opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            transform: translateX(50px); z-index: 1; pointer-events: none;
-        }
-
+        body { background-color: #020617; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f8fafc; overflow: hidden; }
+        .presentation-wrapper { position: relative; width: 1280px; height: 720px; background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #1e293b; overflow: hidden; }
+        .presentation-wrapper::before, .presentation-wrapper::after { content: ''; position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
+        .presentation-wrapper::before { top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0,0,0,0) 70%); }
+        .presentation-wrapper::after { bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, rgba(0,0,0,0) 70%); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 60px 80px; display: flex; flex-direction: column; justify-content: flex-start; opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; transform: translateX(50px); z-index: 1; pointer-events: none; }
         .slide.active { opacity: 1; transform: translateX(0); z-index: 2; pointer-events: auto; }
 
         /* TYPOGRAPHY */
@@ -70,22 +28,17 @@
         h3 { font-size: 26px; font-weight: 600; margin-bottom: 15px; color: #e2e8f0; }
         p, li { font-size: 19px; line-height: 1.6; color: #cbd5e1; font-weight: 300; }
         .subtitle { font-size: 24px; color: #94a3b8; font-weight: 400; margin-top: 10px; }
-
         .content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; height: 100%; }
 
         /* LAYOUTS */
         .title-layout { display: flex; flex-direction: column; justify-content: center; height: 100%; width: 75%; }
         .title-layout .author { margin-top: 60px; font-size: 20px; color: #818cf8; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;}
-
         .two-column { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; height: 100%; }
         .two-column .text-content { display: flex; flex-direction: column; gap: 20px; }
-        
         .bullet-list { margin-left: 0; list-style: none; }
         .bullet-list li { position: relative; padding-left: 45px; margin-bottom: 24px; }
         .bullet-list li i { position: absolute; left: 0; top: 3px; color: #38bdf8; font-size: 22px; background: rgba(56, 189, 248, 0.1); padding: 8px; border-radius: 8px; }
         .bullet-list li strong { color: #f8fafc; font-weight: 600; display: block; margin-bottom: 4px; }
-        
-        /* Highlight Variations */
         .bullet-list.highlight li i { background: rgba(129, 140, 248, 0.2); color: #818cf8; }
         .bullet-list.highlight li strong { color: #818cf8; }
         .bullet-list.eebo li i { background: rgba(234, 179, 8, 0.2); color: #eab308; }
@@ -109,7 +62,7 @@
         .doc-item i { color: #94a3b8; font-size: 20px; }
         @keyframes pulseArrow { 0%, 100% { transform: translateX(-5px); opacity: 0.5; } 50% { transform: translateX(5px); opacity: 1; color: #38bdf8; } }
 
-        /* Slide 3: The Data Challenge (Orthography) Graphic */
+        /* Slide 3: Orthography Graphic */
         .ortho-container { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; z-index: 2;}
         .raw-chars { display: flex; gap: 15px; }
         .char-box { background: #1e293b; border: 1px dashed #64748b; border-radius: 8px; padding: 15px; text-align: center; width: 100px; color: #94a3b8; font-size: 14px;}
@@ -154,17 +107,29 @@
         @keyframes pulseGlow { 0%, 100% { text-shadow: 0 0 5px rgba(129, 140, 248, 0.5); transform: scale(1); } 50% { text-shadow: 0 0 20px rgba(129, 140, 248, 1); transform: scale(1.1); } }
         @keyframes pulseArrowDown { 0%, 100% { transform: translateY(-5px); opacity: 0.5; } 50% { transform: translateY(5px); opacity: 1; color: #38bdf8; } }
 
-        /* Slide 6: SVG Graph Graphic */
-        .graph-container { width: 100%; height: 100%; position: relative; z-index: 2;}
-        .graph-svg { width: 100%; height: 100%; display: block; }
-        .g-node { fill: #1e293b; stroke: #38bdf8; stroke-width: 3px; cursor: pointer; transition: fill 0.3s, stroke 0.3s; }
-        .g-node.person { stroke: #818cf8; }
-        .g-node.place { stroke: #10b981; }
-        .g-node:hover { fill: #38bdf8; stroke: #fff; }
-        .g-text { fill: #f8fafc; font-size: 14px; font-family: 'Inter', sans-serif; pointer-events: none; text-anchor: middle; dominant-baseline: middle; font-weight: 500; }
-        .g-edge { stroke: #475569; stroke-width: 2px; }
-        .g-edge-anim { stroke: #38bdf8; stroke-width: 2px; stroke-dasharray: 6 6; animation: moveDash 20s linear infinite; opacity: 0.7; }
-        @keyframes moveDash { to { stroke-dashoffset: -200; } }
+        /* Slide 6: Hybrid Pipeline Architecture Graphic */
+        .hybrid-container { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 20px; z-index: 2; gap: 15px;}
+        .hybrid-row { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
+        .hybrid-box { background: rgba(30, 41, 59, 0.8); border: 2px solid; border-radius: 12px; padding: 15px; text-align: center; width: 160px; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.3); }
+        
+        .hybrid-box.pg { border-color: #336791; } /* PostgreSQL Blue */
+        .hybrid-box.pg i { color: #38bdf8; }
+        
+        .hybrid-box.neo { border-color: #eab308; } /* Neo4j Yellow */
+        .hybrid-box.neo i { color: #eab308; }
+        
+        .hybrid-box.llm { border-color: #818cf8; background: rgba(129, 140, 248, 0.1); } /* LLM Purple */
+        .hybrid-box.llm i { color: #818cf8; animation: pulseGlow 2s infinite;}
+        
+        .hybrid-box i { font-size: 32px; margin-bottom: 8px; display: block; }
+        .hybrid-box .h-title { font-size: 16px; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
+        .hybrid-box .h-desc { font-size: 11px; color: #94a3b8; }
+        
+        .hybrid-arrow { color: #475569; font-size: 24px; animation: pulseArrow 2s infinite; }
+        
+        .hybrid-doc { background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; border-radius: 8px; padding: 15px 25px; margin-top: 10px; text-align: center; color: #10b981; font-weight: 600; width: 80%; display: flex; flex-direction: column; align-items: center; gap: 5px;}
+        .hybrid-doc i { font-size: 24px; }
+        .hybrid-doc span { font-size: 12px; font-weight: 400; color: #94a3b8; }
 
         /* Slide 7: EEBO-TCP Graphic */
         .eebo-container { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; padding: 40px; z-index: 2;}
@@ -197,25 +162,16 @@
         .slide-counter { font-family: 'Poppins', sans-serif; color: #94a3b8; font-size: 16px; margin: 0 10px; }
         .progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(0,0,0,0.5); z-index: 10;}
         .progress-bar { height: 100%; background: #38bdf8; width: 0%; transition: width 0.3s ease; }
-
     </style>
 </head>
 <body>
 
 <div class="presentation-wrapper">
-    
-    <!-- Slide 1: Title_Slide -->
+    <!-- Slide 1,2,3,4,5 유지 -->
     <div class="slide active" id="slide-1">
-        <div class="content-area">
-            <div class="title-layout">
-                <h1>Samil (March 1st) Movement<br>Knowledge Graph</h1>
-                <p class="subtitle">Structuring Texts from the 1919 Japanese Colonial Period & RAG Integration</p>
-                <div class="author">Gyungmin Jo | Visiting Scholar Proposal</div>
-            </div>
-        </div>
+        <div class="content-area"><div class="title-layout"><h1>Samil (March 1st) Movement<br>Knowledge Graph</h1><p class="subtitle">Structuring Texts from the 1919 Japanese Colonial Period & RAG Integration</p><div class="author">Gyungmin Jo | Visiting Scholar Proposal</div></div></div>
     </div>
-
-    <!-- Slide 2: Data Source & Motivation -->
+    
     <div class="slide" id="slide-2">
         <h2 class="slide-title">Data Source & <span>Motivation</span></h2>
         <div class="content-area">
@@ -230,10 +186,7 @@
                 <div>
                     <div class="infographic-box">
                         <div class="data-flow">
-                            <div class="flow-node">
-                                <i class="fa-solid fa-server"></i>
-                                HGIS<br>Database
-                            </div>
+                            <div class="flow-node"><i class="fa-solid fa-server"></i>HGIS<br>Database</div>
                             <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
                             <div class="docs-stack">
                                 <div class="doc-item"><i class="fa-solid fa-file-contract"></i> Interrogation Protocols</div>
@@ -241,15 +194,12 @@
                                 <div class="doc-item"><i class="fa-solid fa-scroll"></i> Declarations</div>
                             </div>
                         </div>
-                        <div class="particle" style="width: 12px; height: 12px; top: 15%; left: 80%;"></div>
-                        <div class="particle" style="width: 8px; height: 8px; top: 75%; left: 10%; animation-delay: 2s;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 3: The Data Challenge (Historical Orthography) -->
     <div class="slide" id="slide-3">
         <h2 class="slide-title">The Core Challenge: <span>Historical Orthography</span></h2>
         <div class="content-area">
@@ -258,7 +208,7 @@
                     <ul class="bullet-list challenge">
                         <li><i class="fa-solid fa-language"></i> <strong>Mixed Script Complexity</strong> The raw records are not simple texts. They are a chaotic mixture of Hangul, traditional Hanja, and early 20th-century Japanese.</li>
                         <li><i class="fa-solid fa-spell-check"></i> <strong>Japanese Colonial Kanji</strong> The extensive use of Japanese-style Hanja variants (Shinjitai) from the 1910s requires us to completely redefine orthographic and transcription rules.</li>
-                        <li><i class="fa-solid fa-filter"></i> <strong>Standardization First</strong> Before applying TEI tags or a Graph DB, a robust NLP preprocessing pipeline must be engineered to normalize these diverse historical characters.</li>
+                        <li><i class="fa-solid fa-filter"></i> <strong>Standardization First</strong> Before applying TEI tags or a Graph DB, a robust NLP preprocessing pipeline must be engineered to normalize these diverse characters.</li>
                     </ul>
                 </div>
                 <div>
@@ -270,24 +220,16 @@
                                 <div class="char-box"><div class="char-main">독립</div><div style="color:#38bdf8;">Hangul</div></div>
                             </div>
                             <i class="fa-solid fa-arrow-down-long" style="font-size: 24px; color: #475569; animation: pulseArrowDown 2s infinite;"></i>
-                            <div class="norm-engine">
-                                <i class="fa-solid fa-gear"></i>
-                                <span>NLP Normalization Pipeline</span>
-                            </div>
+                            <div class="norm-engine"><i class="fa-solid fa-gear"></i><span>NLP Normalization Pipeline</span></div>
                             <i class="fa-solid fa-arrow-down-long" style="font-size: 24px; color: #475569; animation: pulseArrowDown 2s infinite;"></i>
-                            <div class="clean-data">
-                                &lt;term&gt;独立&lt;/term&gt;&lt;gloss&gt;독립&lt;/gloss&gt;
-                            </div>
+                            <div class="clean-data">&lt;term&gt;独立&lt;/term&gt;&lt;gloss&gt;독립&lt;/gloss&gt;</div>
                         </div>
-                        <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 15%;"></div>
-                        <div class="particle" style="width: 15px; height: 15px; bottom: 20%; right: 15%; animation-delay: 1.5s;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 4: Paradigm Shift (TEI vs Ontology) -->
     <div class="slide" id="slide-4">
         <h2 class="slide-title">Paradigm Shift: <span>Hierarchy to Network</span></h2>
         <div class="content-area">
@@ -335,7 +277,6 @@
         </div>
     </div>
 
-    <!-- Slide 5: AI & RAG -->
     <div class="slide" id="slide-5">
         <h2 class="slide-title">Beyond Search: <span>Generative AI (RAG)</span></h2>
         <div class="content-area">
@@ -371,61 +312,66 @@
                                 <i class="fa-solid fa-check-circle"></i> Hallucination-Free Answer
                             </div>
                         </div>
-                        <svg width="100%" height="150" style="position:absolute; top:40%; left:0; z-index:1; opacity: 0.3;">
-                            <path d="M 0 75 Q 100 0, 200 75 T 400 75 T 600 75" fill="transparent" stroke="#818cf8" stroke-width="2" stroke-dasharray="5,5"/>
-                        </svg>
-                        <div class="particle" style="width: 15px; height: 15px; top: 20%; left: 20%;"></div>
-                        <div class="particle" style="width: 10px; height: 10px; top: 80%; left: 80%; animation-delay: 1s;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 6: Pipeline & Live Demo -->
+    <!-- Slide 6: NEW Hybrid Pipeline Architecture -->
     <div class="slide" id="slide-6">
-        <h2 class="slide-title">Technical Pipeline & <span>Implementation</span></h2>
+        <h2 class="slide-title">Hybrid Architecture: <span>The 'Docent' Engine</span></h2>
         <div class="content-area">
             <div class="two-column">
                 <div class="text-content">
                     <ul class="bullet-list">
-                        <li><i class="fa-brands fa-python"></i> <strong>The 'Docent' Pipeline</strong> Engineered to parse PostgreSQL TEI-tagged columns (`&lt;persName&gt;`, `&lt;placeName&gt;`) and map relationships.</li>
-                        <li><i class="fa-solid fa-database"></i> <strong>Neo4j Graph Database</strong> Transforming static text into a high-performance, queryable network of interconnected historical events via Python.</li>
-                        <li><i class="fa-solid fa-desktop"></i> <strong>Streamlit UI & RAG</strong> Providing an interactive interface for graph visualization and AI-driven historical interpretation (docent).</li>
+                        <li><i class="fa-solid fa-filter"></i> <strong>1. PGSQL Context Filtering</strong> Moving the entire dataset to a graph is inefficient. We first query PostgreSQL to filter relevant keywords and extract core entities.</li>
+                        <li><i class="fa-solid fa-circle-nodes"></i> <strong>2. Dynamic Neo4j Graph</strong> The extracted entities are passed to Neo4j to instantly map and calculate the hidden 'relationships' between those specific nodes.</li>
+                        <li><i class="fa-solid fa-user-tie"></i> <strong>3. The LLM 'Docent'</strong> Finally, the LLM acts as a digital curator. It reads the graph relationships and generates a comprehensive, narrative explanation for the researcher.</li>
                     </ul>
                 </div>
                 <div>
+                    <!-- Custom Hybrid Pipeline Infographic -->
                     <div class="infographic-box">
-                        <div class="graph-container">
-                            <svg class="graph-svg" viewBox="0 0 500 400">
-                                <line x1="250" y1="200" x2="100" y2="100" class="g-edge" />
-                                <line x1="250" y1="200" x2="400" y2="120" class="g-edge" />
-                                <line x1="250" y1="200" x2="200" y2="330" class="g-edge" />
-                                <line x1="250" y1="200" x2="380" y2="280" class="g-edge" />
-                                <line x1="100" y1="100" x2="180" y2="60" class="g-edge" />
-                                <line x1="400" y1="120" x2="300" y2="60" class="g-edge" />
-                                <line x1="250" y1="200" x2="100" y2="100" class="g-edge-anim" />
-                                <line x1="250" y1="200" x2="400" y2="120" class="g-edge-anim" />
-                                <line x1="250" y1="200" x2="200" y2="330" class="g-edge-anim" />
-                                <line x1="250" y1="200" x2="380" y2="280" class="g-edge-anim" />
+                        <div class="hybrid-container">
+                            
+                            <div class="hybrid-row">
+                                <div class="hybrid-box pg">
+                                    <i class="fa-solid fa-database"></i>
+                                    <div class="h-title">PostgreSQL</div>
+                                    <div class="h-desc">Keyword Search &<br>Entity Extraction</div>
+                                </div>
                                 
-                                <circle cx="100" cy="100" r="35" class="g-node person" />
-                                <text x="100" y="100" class="g-text">Person</text>
-                                <circle cx="400" cy="120" r="35" class="g-node place" />
-                                <text x="400" y="120" class="g-text">Seoul</text>
-                                <circle cx="200" cy="330" r="30" class="g-node person" />
-                                <text x="200" y="330" class="g-text">Activist</text>
-                                <circle cx="380" cy="280" r="30" class="g-node place" />
-                                <text x="380" y="280" class="g-text">Prison</text>
-                                <circle cx="180" cy="60" r="25" class="g-node" />
-                                <text x="180" y="60" class="g-text">Org</text>
-                                <circle cx="300" cy="60" r="25" class="g-node person" />
-                                <text x="300" y="60" class="g-text">Student</text>
+                                <div class="hybrid-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
                                 
-                                <circle cx="250" cy="200" r="45" class="g-node" style="stroke: #eab308; stroke-width: 4px; fill: #1e293b;" />
-                                <text x="250" y="200" class="g-text" style="font-size: 16px; font-weight: 700; fill: #eab308;">Event 1919</text>
-                            </svg>
+                                <div class="hybrid-box neo">
+                                    <i class="fa-solid fa-diagram-project"></i>
+                                    <div class="h-title">Neo4j</div>
+                                    <div class="h-desc">Dynamic Graph<br>Relationship Mapping</div>
+                                </div>
+                            </div>
+                            
+                            <div class="hybrid-arrow" style="margin-top: 10px;"><i class="fa-solid fa-arrow-down-long"></i></div>
+                            
+                            <div class="hybrid-row" style="margin-top: 10px;">
+                                <div class="hybrid-box llm">
+                                    <i class="fa-solid fa-brain"></i>
+                                    <div class="h-title">LLM Engine</div>
+                                    <div class="h-desc">Narrative Synthesis</div>
+                                </div>
+                            </div>
+                            
+                            <div class="hybrid-arrow" style="margin-top: 10px; font-size: 18px;"><i class="fa-solid fa-chevron-down"></i></div>
+                            
+                            <div class="hybrid-doc">
+                                <i class="fa-regular fa-file-lines"></i>
+                                "Curated Historical Narrative"
+                                <span>Generated by Digital Docent</span>
+                            </div>
+
                         </div>
+                        <div class="particle" style="width: 15px; height: 15px; top: 15%; left: 85%;"></div>
+                        <div class="particle" style="width: 10px; height: 10px; top: 80%; left: 15%; animation-delay: 2s;"></div>
                     </div>
                 </div>
             </div>
@@ -459,11 +405,9 @@
                             <div class="eebo-node docent">
                                 <i class="fa-solid fa-network-wired eebo-icon"></i>
                                 <div class="eebo-title">"Docent" Pipeline</div>
-                                <div class="eebo-desc">Neo4j Graph DB<br>+ RAG Framework<br>(Natural Language Query)</div>
+                                <div class="eebo-desc">Hybrid Graph DB<br>+ RAG Framework<br>(Natural Language)</div>
                             </div>
                         </div>
-                        <div class="particle" style="width: 15px; height: 15px; top: 10%; left: 50%;"></div>
-                        <div class="particle" style="width: 8px; height: 8px; top: 85%; left: 30%; animation-delay: 1s;"></div>
                     </div>
                 </div>
             </div>
@@ -477,7 +421,7 @@
             <div class="two-column">
                 <div class="text-content">
                     <ul class="bullet-list">
-                        <li><i class="fa-solid fa-share-nodes"></i> <strong>Methodology Sharing</strong> Openly sharing the <code>docent</code> Python data pipeline and Neo4j implementation methods with DSC researchers.</li>
+                        <li><i class="fa-solid fa-share-nodes"></i> <strong>Methodology Sharing</strong> Openly sharing the <code>docent</code> hybrid data pipeline and Neo4j implementation methods with DSC researchers.</li>
                         <li><i class="fa-solid fa-server"></i> <strong>Technical Support</strong> Providing practical, hands-on assistance for backend architecture design in ongoing text mining and semantic web projects.</li>
                         <li><i class="fa-solid fa-globe"></i> <strong>Global Standard</strong> Collaborating to apply this graph architecture to both Korean history and global archives like EEBO-TCP within the DSC framework.</li>
                     </ul>
@@ -495,22 +439,17 @@
                                 <span>Synergy Core</span>
                             </div>
                         </div>
-                        <div class="particle" style="width: 10px; height: 10px; top: 15%; left: 85%;"></div>
-                        <div class="particle" style="width: 14px; height: 14px; top: 80%; left: 15%; animation-delay: 2s;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation Controls -->
     <div class="controls">
         <button id="prevBtn" title="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
         <span class="slide-counter"><span id="currentNum">1</span> / 8</span>
         <button id="nextBtn" title="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
-
-    <!-- Progress Bar -->
     <div class="progress-bar-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -579,4 +518,5 @@
 
 </body>
 </html>
+
 
