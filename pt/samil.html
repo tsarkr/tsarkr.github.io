@@ -17,7 +17,7 @@
         .presentation-wrapper::before, .presentation-wrapper::after { content: ''; position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
         .presentation-wrapper::before { top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0,0,0,0) 70%); }
         .presentation-wrapper::after { bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, rgba(0,0,0,0) 70%); }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 80px; display: flex; flex-direction: column; justify-content: flex-start; opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; transform: translateX(50px); z-index: 1; pointer-events: none; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 80px; display: flex; flex-direction: column; justify-content: flex-start; opacity: 0; transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; transform: translateX(30px); z-index: 1; pointer-events: none; }
         .slide.active { opacity: 1; transform: translateX(0); z-index: 2; pointer-events: auto; }
 
         /* TYPOGRAPHY */
@@ -72,7 +72,7 @@
         .doc-item { background: #1e293b; padding: 12px 18px; border-radius: 8px; border-left: 4px solid #38bdf8; display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #e2e8f0; }
         @keyframes pulseArrow { 0%, 100% { transform: translateX(-5px); opacity: 0.5; } 50% { transform: translateX(5px); opacity: 1; color: #38bdf8; } }
 
-        /* Slide 4 Orthography */
+        /* Slide Orthography */
         .ortho-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; z-index: 2;}
         .raw-chars { display: flex; gap: 12px; }
         .char-box { background: #1e293b; border: 1px dashed #64748b; border-radius: 8px; padding: 12px; text-align: center; width: 95px; color: #94a3b8; font-size: 13px;}
@@ -83,7 +83,7 @@
         .clean-data { background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 8px; padding: 12px 25px; font-family: monospace; font-size: 15px; color: #10b981; font-weight: 600;}
         @keyframes spinGear { 100% { transform: rotate(360deg); } }
 
-        /* Slide 5 Paradigm Shift */
+        /* Slide Paradigm Shift */
         .paradigm-container { display: flex; width: 100%; height: 100%; align-items: center; justify-content: space-between; padding: 20px; z-index: 2;}
         .hierarchy-box { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .h-title { font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;}
@@ -104,7 +104,7 @@
         .n-node.c4 { top: 60px; left: 20px; border-color: #38bdf8; }
         .n-edge { position: absolute; background: rgba(129, 140, 248, 0.3); height: 2px; transform-origin: left center;}
 
-        /* Slide 6 RAG */
+        /* Slide RAG */
         .rag-container { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; padding: 20px; }
         .rag-top { display: flex; align-items: center; gap: 15px; width: 100%; justify-content: center;}
         .rag-icon-wrapper { display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -114,9 +114,8 @@
         .rag-arrow { color: #475569; font-size: 20px; }
         .rag-arrow-down { color: #475569; font-size: 20px; margin: -5px 0; }
         .rag-output { background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 50px; padding: 12px 25px; text-align: center; color: #10b981; font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
-        @keyframes pulseGlow { 0%, 100% { text-shadow: 0 0 5px rgba(129, 140, 248, 0.5); transform: scale(1); } 50% { text-shadow: 0 0 15px rgba(129, 140, 248, 1); transform: scale(1.05); } }
 
-        /* Slide 7 Hybrid Pipeline */
+        /* Slide Hybrid Pipeline */
         .hybrid-container { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 15px; gap: 12px;}
         .hybrid-row { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
         .hybrid-box { background: rgba(30, 41, 59, 0.8); border: 2px solid; border-radius: 12px; padding: 12px; text-align: center; width: 150px; box-shadow: 0 0 20px rgba(0,0,0,0.3); }
@@ -125,7 +124,7 @@
         .hybrid-box.neo { border-color: #eab308; }
         .hybrid-box.neo i { color: #eab308; }
         .hybrid-box.llm { border-color: #818cf8; background: rgba(129, 140, 248, 0.1); }
-        .hybrid-box.llm i { color: #818cf8; animation: pulseGlow 2s infinite;}
+        .hybrid-box.llm i { color: #818cf8; }
         .hybrid-box i { font-size: 28px; margin-bottom: 6px; display: block; }
         .hybrid-box .h-title { font-size: 15px; font-weight: 700; color: #f8fafc; margin-bottom: 2px; }
         .hybrid-box .h-desc { font-size: 11px; color: #94a3b8; }
@@ -134,7 +133,7 @@
         .hybrid-doc i { font-size: 20px; }
         .hybrid-doc span { font-size: 11px; font-weight: 400; color: #94a3b8; }
 
-        /* Slide 8 EEBO */
+        /* Slide EEBO */
         .eebo-container { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; padding: 20px; }
         .eebo-node { background: rgba(30, 41, 59, 0.8); border: 2px solid #eab308; border-radius: 12px; padding: 20px; text-align: center; width: 42%; box-shadow: 0 0 20px rgba(234, 179, 8, 0.1); }
         .eebo-node.docent { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
@@ -145,7 +144,7 @@
         .eebo-arrow-container { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 16%; }
         .eebo-badge { background: #eab308; color: #020617; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; }
 
-        /* Slide 9 Synergy Orbit */
+        /* Slide Synergy Orbit */
         .synergy-container { position: relative; width: 260px; height: 260px; display: flex; justify-content: center; align-items: center; }
         .center-node { background: #1e293b; border: 3px solid #38bdf8; border-radius: 50%; width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: 700; font-size: 24px; color: #f8fafc; box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); z-index: 5; }
         .center-node span { font-size: 11px; color: #94a3b8; font-weight: 400; margin-top: 2px; }
@@ -181,7 +180,7 @@
         </div>
     </div>
 
-    <!-- Slide 2: NEW Added Profile Slide (From eng_index.html & Academic CV) -->
+    <!-- Slide 2: Researcher Profile -->
     <div class="slide" id="slide-2">
         <h2 class="slide-title">About the Researcher: <span>Gyungmin Jo</span></h2>
         <div class="content-area">
@@ -240,7 +239,7 @@
         </div>
     </div>
 
-    <!-- Slide 4: The Data Challenge (Historical Orthography) -->
+    <!-- Slide 4: Historical Orthography -->
     <div class="slide" id="slide-4">
         <h2 class="slide-title">The Core Challenge: <span>Historical Orthography</span></h2>
         <div class="content-area">
@@ -271,7 +270,7 @@
         </div>
     </div>
 
-    <!-- Slide 5: Paradigm Shift (TEI vs Ontology) -->
+    <!-- Slide 5: Paradigm Shift -->
     <div class="slide" id="slide-5">
         <h2 class="slide-title">Paradigm Shift: <span>Hierarchy to Network</span></h2>
         <div class="content-area">
@@ -361,7 +360,7 @@
         </div>
     </div>
 
-    <!-- Slide 7: Hybrid Pipeline Architecture -->
+    <!-- Slide 7: Hybrid Architecture -->
     <div class="slide" id="slide-7">
         <h2 class="slide-title">Hybrid Architecture: <span>The 'Docent' Engine</span></h2>
         <div class="content-area">
@@ -409,7 +408,7 @@
         </div>
     </div>
 
-    <!-- Slide 8: EEBO-TCP Scalability -->
+    <!-- Slide 8: Scaling to Global Archives -->
     <div class="slide" id="slide-8">
         <h2 class="slide-title">Scaling to Global Archives: <span>EEBO-TCP</span></h2>
         <div class="content-area">
@@ -445,7 +444,7 @@
         </div>
     </div>
 
-    <!-- Slide 9: Synergy -->
+    <!-- Slide 9: Expected Synergy with DSC -->
     <div class="slide" id="slide-9">
         <h2 class="slide-title">Expected Synergy with <span>DSC</span></h2>
         <div class="content-area">
@@ -511,9 +510,10 @@
             });
 
             currentNum.textContent = currentSlideIndex + 1;
-            const progressPercentage = ((currentSlideIndex) / (totalSlides - 1)) * 100;
-            progressBar.style.width = `${progressPercentage}%`;
+            const progressPercentage = (currentSlideIndex / (totalSlides - 1)) * 100;
+            progressBar.style.width = progressPercentage + '%';
 
+            // 버튼 불투명도 및 포인터 비활성화 제어
             prevBtn.style.opacity = currentSlideIndex === 0 ? '0.3' : '1';
             prevBtn.style.cursor = currentSlideIndex === 0 ? 'default' : 'pointer';
             
@@ -535,21 +535,32 @@
             }
         }
 
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        // 클릭 이벤트 리스너 바인딩 안전 검증
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+        });
+        
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+        });
 
+        // 키보드 제어 로직 완전 복구
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') {
+                e.preventDefault();
                 nextSlide();
             } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
                 prevSlide();
             }
         });
 
+        // 초기 구동 실행
         updateSlider();
     });
 </script>
 
 </body>
 </html>
-```eof
