@@ -1,407 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samil (March 1st) Movement Knowledge Graph</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" crossorigin="anonymous">
-<style>
-/* CORE DESIGN PRINCIPLES */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background-color: #020617; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f8fafc; overflow: hidden; }
-.presentation-wrapper { position: relative; width: 1280px; height: 720px; background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #1e293b; overflow: hidden; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samil (March 1st) Movement Knowledge Graph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN 교체: 캔버스 보안(CORS) 환경에서도 아이콘이 표시되도록 JSDelivr 사용 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" crossorigin="anonymous">
+    <style>
+        /* CORE DESIGN PRINCIPLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #020617; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Inter', sans-serif; color: #f8fafc; overflow: hidden; }
+        .presentation-wrapper { position: relative; width: 1280px; height: 720px; background: linear-gradient(135deg, #0f172a 0%, #020617 100%); border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border: 1px solid #1e293b; overflow: hidden; }
+        .presentation-wrapper::before, .presentation-wrapper::after { content: ''; position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
+        .presentation-wrapper::before { top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0,0,0,0) 70%); }
+        .presentation-wrapper::after { bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, rgba(0,0,0,0) 70%); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 80px; display: flex; flex-direction: column; justify-content: flex-start; opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; transform: translateX(50px); z-index: 1; pointer-events: none; }
+        .slide.active { opacity: 1; transform: translateX(0); z-index: 2; pointer-events: auto; }
 
-/* Abstract Background Elements */
-.presentation-wrapper::before, .presentation-wrapper::after { content: ''; position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
-.presentation-wrapper::before { top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(0,0,0,0) 70%); }
-.presentation-wrapper::after { bottom: -200px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, rgba(0,0,0,0) 70%); }
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; color: #f8fafc; font-weight: 700; }
+        h1 { font-size: 64px; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to right, #f8fafc, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .slide-title { font-size: 38px; margin-bottom: 30px; text-align: left; border-bottom: 2px solid #1e293b; padding-bottom: 12px; display: inline-block; width: 100%; }
+        .slide-title span { color: #38bdf8; }
+        h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #e2e8f0; }
+        p, li { font-size: 17px; line-height: 1.6; color: #cbd5e1; font-weight: 300; }
+        .subtitle { font-size: 24px; color: #94a3b8; font-weight: 400; margin-top: 10px; }
+        .content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: flex-start; width: 100%; height: calc(100% - 80px); }
 
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 50px 80px; display: flex; flex-direction: column; justify-content: flex-start; opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; transform: translateX(50px); z-index: 1; pointer-events: none; }
-.slide.active { opacity: 1; transform: translateX(0); z-index: 2; pointer-events: auto; }
+        /* LAYOUTS */
+        .title-layout { display: flex; flex-direction: column; justify-content: center; height: 100%; width: 75%; }
+        .title-layout .author { margin-top: 60px; font-size: 20px; color: #818cf8; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;}
+        .two-column { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; height: 100%; }
+        .two-column .text-content { display: flex; flex-direction: column; gap: 15px; }
+        
+        /* Profile Slide Grid Layout */
+        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 100%; margin-top: 10px; }
+        .profile-card-v2 { background: rgba(30, 41, 59, 0.4); border: 1px solid #334155; border-radius: 12px; padding: 22px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .profile-card-v2 h3 i { margin-right: 10px; }
+        .profile-intro-text { font-size: 16px; color: #cbd5e1; line-height: 1.6; text-align: justify; margin-bottom: 15px; }
 
-/* TYPOGRAPHY */
-h1, h2, h3 { font-family: 'Poppins', sans-serif; color: #f8fafc; font-weight: 700; }
-h1 { font-size: 64px; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to right, #f8fafc, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.slide-title { font-size: 40px; margin-bottom: 30px; text-align: left; border-bottom: 2px solid #1e293b; padding-bottom: 15px; display: inline-block; width: 100%; }
-.slide-title span { color: #38bdf8; }
-h3 { font-size: 24px; font-weight: 600; margin-bottom: 12px; color: #e2e8f0; }
-p, li { font-size: 18px; line-height: 1.6; color: #cbd5e1; font-weight: 300; }
-.subtitle { font-size: 24px; color: #94a3b8; font-weight: 400; margin-top: 10px; }
-.content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; height: 100%; }
+        /* Lists */
+        .bullet-list { margin-left: 0; list-style: none; }
+        .bullet-list li { position: relative; padding-left: 40px; margin-bottom: 18px; font-size: 17px; }
+        .bullet-list li i { position: absolute; left: 0; top: 3px; color: #38bdf8; font-size: 18px; background: rgba(56, 189, 248, 0.1); padding: 6px; border-radius: 6px; }
+        .bullet-list li strong { color: #f8fafc; font-weight: 600; display: block; margin-bottom: 2px; }
+        .bullet-list.highlight li i { background: rgba(129, 140, 248, 0.2); color: #818cf8; }
+        .bullet-list.highlight li strong { color: #818cf8; }
+        .bullet-list.eebo li i { background: rgba(234, 179, 8, 0.2); color: #eab308; }
+        .bullet-list.eebo li strong { color: #eab308; }
+        .bullet-list.challenge li i { background: rgba(244, 63, 94, 0.2); color: #f43f5e; }
+        .bullet-list.challenge li strong { color: #f43f5e; }
+        
+        .profile-list { list-style: none; }
+        .profile-list li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: 15px; color: #cbd5e1; line-height: 1.5; }
+        .profile-list li::before { content: '•'; position: absolute; left: 0; color: #38bdf8; font-weight: bold; }
 
-/* LAYOUTS */
-.title-layout { display: flex; flex-direction: column; justify-content: center; height: 100%; width: 75%; }
-.title-layout .author { margin-top: 60px; font-size: 20px; color: #818cf8; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;}
-.two-column { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; height: 100%; }
-.two-column .text-content { display: flex; flex-direction: column; gap: 15px; }
+        /* INFOGRAPHICS BY CSS/SVG */
+        .infographic-box { border-radius: 16px; height: 380px; width: 100%; background-color: #0f172a; border: 1px solid #334155; box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; flex-direction: column; }
+        .particle { position: absolute; background: #38bdf8; border-radius: 50%; opacity: 0.2; animation: float 10s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.2); opacity: 0.5; } }
 
-.bullet-list { margin-left: 0; list-style: none; }
-.bullet-list li { position: relative; padding-left: 40px; margin-bottom: 18px; }
-.bullet-list li i { position: absolute; left: 0; top: 3px; color: #38bdf8; font-size: 20px; background: rgba(56, 189, 248, 0.1); padding: 6px; border-radius: 6px; }
-.bullet-list li strong { color: #f8fafc; font-weight: 600; display: block; margin-bottom: 2px; }
+        /* Slide Graphics */
+        .data-flow { display: flex; align-items: center; gap: 20px; width: 100%; padding: 0 30px; }
+        .flow-node { background: rgba(30, 41, 59, 0.8); border: 2px solid #38bdf8; border-radius: 12px; padding: 20px 15px; text-align: center; color: #f8fafc; font-weight: 600; box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); width: 140px; font-size: 16px; }
+        .flow-node i { font-size: 36px; color: #38bdf8; margin-bottom: 10px; display: block; }
+        .flow-arrow { color: #475569; font-size: 26px; animation: pulseArrow 2s infinite; }
+        .docs-stack { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
+        .doc-item { background: #1e293b; padding: 12px 18px; border-radius: 8px; border-left: 4px solid #38bdf8; display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #e2e8f0; }
+        @keyframes pulseArrow { 0%, 100% { transform: translateX(-5px); opacity: 0.5; } 50% { transform: translateX(5px); opacity: 1; color: #38bdf8; } }
 
-/* Highlight Variations */
-.bullet-list.highlight li i { background: rgba(129, 140, 248, 0.2); color: #818cf8; }
-.bullet-list.highlight li strong { color: #818cf8; }
-.bullet-list.challenge li i { background: rgba(244, 63, 94, 0.2); color: #f43f5e; }
-.bullet-list.challenge li strong { color: #f43f5e; }
-.bullet-list.eebo li i { background: rgba(234, 179, 8, 0.2); color: #eab308; }
-.bullet-list.eebo li strong { color: #eab308; }
+        /* Slide 4 Orthography */
+        .ortho-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; z-index: 2;}
+        .raw-chars { display: flex; gap: 12px; }
+        .char-box { background: #1e293b; border: 1px dashed #64748b; border-radius: 8px; padding: 12px; text-align: center; width: 95px; color: #94a3b8; font-size: 13px;}
+        .char-main { font-size: 24px; color: #f8fafc; margin-bottom: 4px; font-weight: 700; font-family: 'Batang', serif; }
+        .norm-engine { background: rgba(244, 63, 94, 0.1); border: 2px solid #f43f5e; border-radius: 12px; padding: 15px 30px; text-align: center; display: flex; align-items: center; gap: 12px; box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+        .norm-engine i { font-size: 28px; color: #f43f5e; animation: spinGear 4s linear infinite; }
+        .norm-engine span { color: #f8fafc; font-weight: 700; font-size: 16px; letter-spacing: 1px; }
+        .clean-data { background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 8px; padding: 12px 25px; font-family: monospace; font-size: 15px; color: #10b981; font-weight: 600;}
+        @keyframes spinGear { 100% { transform: rotate(360deg); } }
 
-/* INFOGRAPHICS */
-.infographic-box { border-radius: 16px; height: 440px; width: 100%; background-color: #0f172a; border: 1px solid #334155; box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; flex-direction: column; }
-.particle { position: absolute; background: #38bdf8; border-radius: 50%; opacity: 0.2; animation: float 10s infinite ease-in-out; }
-@keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.2); opacity: 0.5; } }
+        /* Slide 5 Paradigm Shift */
+        .paradigm-container { display: flex; width: 100%; height: 100%; align-items: center; justify-content: space-between; padding: 20px; z-index: 2;}
+        .hierarchy-box { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .h-title { font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;}
+        .tree-node { background: #1e293b; border: 2px solid #475569; border-radius: 6px; padding: 6px 12px; color: #f8fafc; font-size: 13px; }
+        .tree-root { border-color: #eab308; }
+        .tree-level { display: flex; gap: 15px; position: relative; margin-top: 15px;}
+        .tree-level::before { content: ''; position: absolute; top: -15px; left: 50%; width: 2px; height: 15px; background: #475569; }
+        .tree-level.split::after { content: ''; position: absolute; top: -15px; left: 25%; width: 50%; height: 2px; background: #475569; }
+        .t-leaf { border-color: #38bdf8; }
+        .transform-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 5px; }
+        .transform-arrow i { font-size: 20px; color: #818cf8; }
+        .network-box { flex: 1; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center;}
+        .net-nodes { position: relative; width: 100%; height: 180px; margin-top: 15px;}
+        .n-node { position: absolute; background: #0f172a; border: 2px solid #818cf8; border-radius: 50%; width: 38px; height: 38px; display: flex; justify-content: center; align-items: center; font-size: 11px; color: #f8fafc; box-shadow: 0 0 10px rgba(129, 140, 248, 0.4);}
+        .n-node.c1 { top: 10px; left: 50%; transform: translateX(-50%); border-color: #eab308; }
+        .n-node.c2 { bottom: 10px; left: 20px; }
+        .n-node.c3 { bottom: 40px; right: 20px; border-color: #10b981; }
+        .n-node.c4 { top: 60px; left: 20px; border-color: #38bdf8; }
+        .n-edge { position: absolute; background: rgba(129, 140, 248, 0.3); height: 2px; transform-origin: left center;}
 
-/* Slide 2: About Me (Profile) Specific */
-.profile-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; width: 100%; }
-.track-box { background: rgba(30, 41, 59, 0.4); border: 1px solid #334155; border-radius: 12px; padding: 25px; backdrop-filter: blur(10px); }
-.track-box h3 { color: #38bdf8; display: flex; align-items: center; gap: 12px; font-size: 22px; margin-bottom: 20px; }
-.track-box.exp h3 { color: #818cf8; }
-.track-box ul { list-style: none; }
-.track-box li { font-size: 15px; margin-bottom: 12px; position: relative; padding-left: 25px; color: #cbd5e1; }
-.track-box li::before { content: '→'; position: absolute; left: 0; color: #475569; }
+        /* Slide 6 RAG */
+        .rag-container { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; padding: 20px; }
+        .rag-top { display: flex; align-items: center; gap: 15px; width: 100%; justify-content: center;}
+        .rag-icon-wrapper { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .rag-icon-wrapper i.icon-circle { font-size: 32px; color: #38bdf8; background: rgba(56, 189, 248, 0.1); width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 2px solid rgba(56, 189, 248, 0.3); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        .rag-icon-wrapper span { font-size: 13px; font-weight: 600; color: #cbd5e1; letter-spacing: 0.5px; text-transform: uppercase; }
+        .rag-icon-wrapper.ai i.icon-circle { color: #818cf8; border-color: rgba(129, 140, 248, 0.5); background: rgba(129, 140, 248, 0.15); animation: pulseGlow 2s infinite; }
+        .rag-arrow { color: #475569; font-size: 20px; }
+        .rag-arrow-down { color: #475569; font-size: 20px; margin: -5px 0; }
+        .rag-output { background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 50px; padding: 12px 25px; text-align: center; color: #10b981; font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+        @keyframes pulseGlow { 0%, 100% { text-shadow: 0 0 5px rgba(129, 140, 248, 0.5); transform: scale(1); } 50% { text-shadow: 0 0 15px rgba(129, 140, 248, 1); transform: scale(1.05); } }
 
-/* Slide 3: Pipeline Graphic */
-.data-flow { display: flex; align-items: center; gap: 20px; width: 100%; padding: 0 30px; }
-.flow-node { background: rgba(30, 41, 59, 0.8); border: 2px solid #38bdf8; border-radius: 12px; padding: 25px 20px; text-align: center; color: #f8fafc; font-weight: 600; width: 150px; z-index: 2; }
-.flow-node i { font-size: 40px; color: #38bdf8; margin-bottom: 15px; display: block; }
-.flow-arrow { color: #475569; font-size: 30px; animation: pulseArrow 2s infinite; z-index: 1; }
-.docs-stack { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; z-index: 2; }
-.doc-item { background: #1e293b; padding: 12px 18px; border-radius: 8px; border-left: 4px solid #38bdf8; display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: #e2e8f0; }
-@keyframes pulseArrow { 0%, 100% { transform: translateX(-5px); opacity: 0.5; } 50% { transform: translateX(5px); opacity: 1; color: #38bdf8; } }
+        /* Slide 7 Hybrid Pipeline */
+        .hybrid-container { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 15px; gap: 12px;}
+        .hybrid-row { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
+        .hybrid-box { background: rgba(30, 41, 59, 0.8); border: 2px solid; border-radius: 12px; padding: 12px; text-align: center; width: 150px; box-shadow: 0 0 20px rgba(0,0,0,0.3); }
+        .hybrid-box.pg { border-color: #336791; }
+        .hybrid-box.pg i { color: #38bdf8; }
+        .hybrid-box.neo { border-color: #eab308; }
+        .hybrid-box.neo i { color: #eab308; }
+        .hybrid-box.llm { border-color: #818cf8; background: rgba(129, 140, 248, 0.1); }
+        .hybrid-box.llm i { color: #818cf8; animation: pulseGlow 2s infinite;}
+        .hybrid-box i { font-size: 28px; margin-bottom: 6px; display: block; }
+        .hybrid-box .h-title { font-size: 15px; font-weight: 700; color: #f8fafc; margin-bottom: 2px; }
+        .hybrid-box .h-desc { font-size: 11px; color: #94a3b8; }
+        .hybrid-arrow { color: #475569; font-size: 20px; }
+        .hybrid-doc { background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; border-radius: 8px; padding: 12px 20px; margin-top: 5px; text-align: center; color: #10b981; font-weight: 600; width: 75%; display: flex; flex-direction: column; align-items: center; gap: 3px;}
+        .hybrid-doc i { font-size: 20px; }
+        .hybrid-doc span { font-size: 11px; font-weight: 400; color: #94a3b8; }
 
-/* Slide 4: Orthography Graphic */
-.ortho-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; z-index: 2;}
-.raw-chars { display: flex; gap: 15px; }
-.char-box { background: #1e293b; border: 1px dashed #64748b; border-radius: 8px; padding: 12px; text-align: center; width: 90px; color: #94a3b8; font-size: 13px;}
-.char-main { font-size: 26px; color: #f8fafc; margin-bottom: 5px; font-weight: 700; }
-.norm-engine { background: rgba(244, 63, 94, 0.1); border: 2px solid #f43f5e; border-radius: 12px; padding: 15px 35px; text-align: center; display: flex; align-items: center; gap: 15px; }
-.norm-engine i { font-size: 28px; color: #f43f5e; animation: spinGear 4s linear infinite; }
-@keyframes spinGear { 100% { transform: rotate(360deg); } }
+        /* Slide 8 EEBO */
+        .eebo-container { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; padding: 20px; }
+        .eebo-node { background: rgba(30, 41, 59, 0.8); border: 2px solid #eab308; border-radius: 12px; padding: 20px; text-align: center; width: 42%; box-shadow: 0 0 20px rgba(234, 179, 8, 0.1); }
+        .eebo-node.docent { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+        .eebo-icon { font-size: 36px; margin-bottom: 10px; color: #eab308; }
+        .eebo-node.docent .eebo-icon { color: #38bdf8; }
+        .eebo-title { font-size: 18px; font-weight: 700; color: #f8fafc; margin-bottom: 8px; }
+        .eebo-desc { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+        .eebo-arrow-container { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 16%; }
+        .eebo-badge { background: #eab308; color: #020617; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; }
 
-/* Slide 5: Paradigm Shift */
-.paradigm-container { display: flex; width: 100%; height: 100%; align-items: center; justify-content: space-between; padding: 20px; z-index: 2;}
-.hierarchy-box, .network-box { flex: 1; display: flex; flex-direction: column; align-items: center; }
-.tree-node { background: #1e293b; border: 2px solid #475569; border-radius: 6px; padding: 6px 12px; color: #f8fafc; font-size: 13px; margin-top: 15px; }
-.n-node { position: absolute; background: #0f172a; border: 2px solid #818cf8; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; font-size: 11px; z-index: 2; }
-.n-edge { position: absolute; background: rgba(129, 140, 248, 0.3); height: 2px; z-index: 1; transform-origin: left center;}
+        /* Slide 9 Synergy Orbit */
+        .synergy-container { position: relative; width: 260px; height: 260px; display: flex; justify-content: center; align-items: center; }
+        .center-node { background: #1e293b; border: 3px solid #38bdf8; border-radius: 50%; width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: 700; font-size: 24px; color: #f8fafc; box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); z-index: 5; }
+        .center-node span { font-size: 11px; color: #94a3b8; font-weight: 400; margin-top: 2px; }
+        .orbit { position: absolute; width: 100%; height: 100%; border: 1px dashed #475569; border-radius: 50%; animation: spin 20s linear infinite; }
+        .orbit-node { position: absolute; width: 55px; height: 55px; background: #0f172a; border: 2px solid #818cf8; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; color: #818cf8; }
+        .orbit-node.n1 { top: -25px; left: 102px; animation: counter-spin 20s linear infinite; border-color: #eab308; color: #eab308; } 
+        .orbit-node.n2 { bottom: 15px; left: -10px; animation: counter-spin 20s linear infinite; border-color: #38bdf8; color: #38bdf8; } 
+        .orbit-node.n3 { bottom: 15px; right: -10px; animation: counter-spin 20s linear infinite; border-color: #10b981; color: #10b981; } 
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes counter-spin { 100% { transform: rotate(-360deg); } }
 
-/* Slide 6: RAG Graphic */
-.rag-container { display: flex; flex-direction: column; align-items: center; gap: 20px; z-index: 2; }
-.rag-top { display: flex; align-items: center; gap: 20px; }
-.rag-icon-wrapper { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.rag-icon-wrapper i.icon-circle { font-size: 32px; color: #38bdf8; background: rgba(56, 189, 248, 0.1); width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 2px solid rgba(56, 189, 248, 0.3); }
-.rag-icon-wrapper.ai i.icon-circle { color: #818cf8; animation: pulseGlow 2s infinite; }
-.rag-output { background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 40px; padding: 12px 25px; color: #10b981; font-weight: 600; font-size: 17px; display: flex; gap: 10px; }
-@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 5px rgba(129, 140, 248, 0.5); } 50% { box-shadow: 0 0 20px rgba(129, 140, 248, 1); } }
-
-/* Slide 7: Hybrid Architecture */
-.hybrid-box { background: rgba(30, 41, 59, 0.8); border: 2px solid; border-radius: 12px; padding: 12px; text-align: center; width: 150px; }
-.hybrid-doc { background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; border-radius: 8px; padding: 12px; text-align: center; color: #10b981; width: 70%; display: flex; flex-direction: column; align-items: center; }
-
-/* Slide 8: EEBO-TCP */
-.eebo-node { background: rgba(30, 41, 59, 0.8); border: 2px solid #eab308; border-radius: 12px; padding: 20px; text-align: center; width: 42%; }
-.eebo-node.docent { border-color: #38bdf8; }
-
-/* Slide 9: Synergy Orbit */
-.center-node { background: #1e293b; border: 3px solid #38bdf8; border-radius: 50%; width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 24px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); z-index: 5; }
-.orbit { position: absolute; width: 280px; height: 280px; border: 1px dashed #475569; border-radius: 50%; animation: spin 20s linear infinite; }
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-/* CONTROLS */
-.controls { position: absolute; bottom: 30px; right: 40px; z-index: 10; display: flex; gap: 15px; align-items: center; }
-.controls button { background: rgba(51, 65, 85, 0.8); border: 1px solid #475569; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 18px; transition: all 0.2s; }
-.controls button:hover { background: #38bdf8; border-color: #38bdf8; transform: scale(1.1); }
-.slide-counter { font-family: 'Poppins', sans-serif; color: #94a3b8; font-size: 16px; margin: 0 10px; }
-.progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(0,0,0,0.5); z-index: 10;}
-.progress-bar { height: 100%; background: #38bdf8; width: 0%; transition: width 0.3s ease; }
-</style>
+        /* CONTROLS */
+        .controls { position: absolute; bottom: 30px; right: 40px; z-index: 10; display: flex; gap: 15px; align-items: center; }
+        .controls button { background: rgba(51, 65, 85, 0.8); border: 1px solid #475569; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 18px; transition: all 0.2s; }
+        .controls button:hover { background: #38bdf8; border-color: #38bdf8; transform: scale(1.1); }
+        .slide-counter { font-family: 'Poppins', sans-serif; color: #94a3b8; font-size: 16px; margin: 0 10px; }
+        .progress-bar-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(0,0,0,0.5); z-index: 10;}
+        .progress-bar { height: 100%; background: #38bdf8; width: 0%; transition: width 0.3s ease; }
+    </style>
 </head>
 <body>
 
 <div class="presentation-wrapper">
 
-<div class="slide active" id="slide-1">
-<div class="content-area">
-<div class="title-layout">
-<h1>Samil (March 1st) Movement
-Knowledge Graph</h1>
-<p class="subtitle">Digital Humanities Scholar & Systems Architect | Visiting Researcher Proposal</p>
-<div class="author">Gyungmin Jo | University of Alberta DSC</div>
-</div>
-</div>
-</div>
+    <!-- Slide 1: Title_Slide -->
+    <div class="slide active" id="slide-1">
+        <div class="content-area">
+            <div class="title-layout">
+                <h1>Samil (March 1st) Movement<br>Knowledge Graph</h1>
+                <p class="subtitle">Structuring Texts from the 1919 Japanese Colonial Period & RAG Integration</p>
+                <div class="author">Gyungmin Jo | Visiting Scholar Proposal</div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-2">
-<h2 class="slide-title">About the Researcher: <span>Gyungmin Jo</span></h2>
-<div class="content-area">
-<div class="profile-tracks">
-<div class="track-box">
-<h3><i class="fa-solid fa-graduation-cap"></i> Academic & DH Engineering</h3>
-<ul>
-<li><strong>Ph.D. Researcher (Cultural Informatics):</strong> At The Academy of Korean Studies (AKS), developing computational methodologies for modern historical materials.</li>
-<li><strong>Project "Docent":</strong> Principal architect of an end-to-end pipeline utilizing TEI/XML, CIDOC-CRM/SKOS, and GraphRAG.</li>
-<li><strong>Standard Compliance:</strong> Engineering generalized models to support both Korean datasets and western archives like <strong>EEBO-TCP</strong>.</li>
-</ul>
-</div>
-<div class="track-box exp">
-<h3><i class="fa-solid fa-server"></i> Enterprise Systems Leadership</h3>
-<ul>
-<li><strong>Senior Manager:</strong> Serving at the <strong>Korea Cultural Heritage Foundation</strong> (2009–Present), directing national cultural data infrastructures.</li>
-<li><strong>Principal Systems Architect:</strong> Designed cloud backend for high-concurrency <em>"Blue House Opening Online System."</em></li>
-<li><strong>National Recognition:</strong> Awarded the <strong>Minister’s Award</strong> (MSIT). Expert Advisory Board Member for national committees (PPS, KISA, NIPA).</li>
-</ul>
-</div>
-</div>
-<p style="margin-top: 30px; font-style: italic; color: #94a3b8; text-align: center;">"Bridging the Gap Between Traditional Historical Corpora and Advanced Knowledge Graph Architectures"</p>
-</div>
-</div>
+    <!-- Slide 2: NEW Added Profile Slide (From eng_index.html & Academic CV) -->
+    <div class="slide" id="slide-2">
+        <h2 class="slide-title">About the Researcher: <span>Gyungmin Jo</span></h2>
+        <div class="content-area">
+            <p class="profile-intro-text">
+                A prominent Digital Humanities scholar and enterprise systems architect bridging the gap between historical archival texts and cutting-edge data structures. Currently a Ph.D. researcher at <strong>The Academy of Korean Studies</strong>, focusing on engineering production-grade computational methodologies for humanity datasets.
+            </p>
+            <div class="profile-grid">
+                <!-- Academic Track Card -->
+                <div class="profile-card-v2">
+                    <h3 style="color: #38bdf8;"><i class="fa-solid fa-graduation-cap"></i>Academic & DH Research</h3>
+                    <ul class="profile-list" style="margin-top: 10px;">
+                        <li><strong>Ph.D. Track (Cultural Informatics):</strong> Graduate School of Korean Studies. Researching graph-based synchronization for colonial historical corpora.</li>
+                        <li><strong>Project "Docent" Engine:</strong> Custom pipeline integrating <span style="color:#38bdf8; font-weight:600;">TEI/XML</span> semantic encoding, <span style="color:#38bdf8; font-weight:600;">CIDOC-CRM</span>, and GraphRAG.</li>
+                        <li><strong>Cross-Domain Scalability:</strong> Engineered generalized mapping applicable to both Korean modern records and global archives like <span style="color:#38bdf8; font-weight:600;">EEBO-TCP</span>.</li>
+                    </ul>
+                </div>
+                <!-- Enterprise Track Card -->
+                <div class="profile-card-v2">
+                    <h3 style="color: #818cf8;"><i class="fa-solid fa-server"></i>Enterprise Systems Experience</h3>
+                    <ul class="profile-list" style="margin-top: 10px;">
+                        <li><strong>Senior Manager (AI Data Focus):</strong> Served at the <em>Korea Cultural Heritage Foundation</em> (2009–Present), directing national-scale cultural data infrastructures.</li>
+                        <li><strong>Principal Cloud Architect:</strong> Orchestrated backend system architecture and high-concurrency security infrastructure for the <em>"Blue House Opening Online System."</em></li>
+                        <li><strong>National Recognition:</strong> Awarded the <em>Minister’s Award</em> (Ministry of Science and ICT) for exceptional contribution to software architecture.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-3">
-<h2 class="slide-title">Data Source & <span>Motivation</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list">
-<li><i class="fa-solid fa-database"></i> <strong>HGIS Data Foundation</strong> Utilizing the "Historical GIS for the Samil Movement" as the primary machine-readable foundation.</li>
-<li><i class="fa-solid fa-file-signature"></i> <strong>Unstructured Archival Records</strong> Digitizing scattered texts, including interrogations and court rulings under Japanese colonial rule in 1919.</li>
-<li><i class="fa-solid fa-network-wired"></i> <strong>Democratizing History</strong> Uncovering hidden networks of unnamed activists and making raw data accessible to the global public.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="data-flow">
-<div class="flow-node"><i class="fa-solid fa-server"></i>HGIS
-Database</div>
-<div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
-<div class="docs-stack">
-<div class="doc-item"><i class="fa-solid fa-file-contract"></i> Interrogation Protocols</div>
-<div class="doc-item"><i class="fa-solid fa-gavel"></i> Judicial Rulings</div>
-<div class="doc-item"><i class="fa-solid fa-scroll"></i> Declarations (1919)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 3: Data Source & Motivation -->
+    <div class="slide" id="slide-3">
+        <h2 class="slide-title">Data Source & <span>Motivation</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list">
+                        <li><i class="fa-solid fa-database"></i> <strong>HGIS Data Integration</strong> Utilizing the "Historical Geographic Information System for the Samil Movement" as the primary data foundation.</li>
+                        <li><i class="fa-solid fa-file-signature"></i> <strong>Unstructured Records</strong> Digitizing scattered texts, including police interrogations and court rulings under Japanese colonial rule in 1919.</li>
+                        <li><i class="fa-solid fa-network-wired"></i> <strong>Democratizing History</strong> Opening raw data to the public and uncovering hidden, complex underground networks of unnamed independence activists.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="data-flow">
+                            <div class="flow-node"><i class="fa-solid fa-server"></i>HGIS<br>Database</div>
+                            <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                            <div class="docs-stack">
+                                <div class="doc-item"><i class="fa-solid fa-file-contract"></i> Interrogation Protocols</div>
+                                <div class="doc-item"><i class="fa-solid fa-gavel"></i> Judicial Rulings</div>
+                                <div class="doc-item"><i class="fa-solid fa-scroll"></i> Declarations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-4">
-<h2 class="slide-title">The Core Challenge: <span>Historical Orthography</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list challenge">
-<li><i class="fa-solid fa-language"></i> <strong>Mixed Script Complexity</strong> Chaotic mixture of Hangul, traditional Hanja, and early 20th-century Japanese.</li>
-<li><i class="fa-solid fa-spell-check"></i> <strong>Colonial Hanja (Shinjitai)</strong> Use of Japanese-style variants requires redefining transcription and normalization rules.</li>
-<li><i class="fa-solid fa-filter"></i> <strong>TEI Standardization</strong> Mapping raw variants to normalized forms using <code><term></code> and <code><gloss></code> for machine readability.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="ortho-container">
-<div class="raw-chars">
-<div class="char-box"><div class="char-main">獨立</div><div style="color:#fbbf24;">Trad. Hanja</div></div>
-<div class="char-box"><div class="char-main" style="color:#f43f5e;">独立</div><div style="color:#f43f5e;">JP Variant</div></div>
-<div class="char-box"><div class="char-main">독립</div><div style="color:#38bdf8;">Hangul</div></div>
-</div>
-<i class="fa-solid fa-arrow-down-long" style="color: #475569;"></i>
-<div class="norm-engine"><i class="fa-solid fa-gear"></i><span>NLP Normalization Pipeline</span></div>
-<i class="fa-solid fa-arrow-down-long" style="color: #475569;"></i>
-<div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 8px; padding: 12px 25px; color: #10b981; font-family: monospace;">
-<term>独立</term><gloss>독립</gloss>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 4: The Data Challenge (Historical Orthography) -->
+    <div class="slide" id="slide-4">
+        <h2 class="slide-title">The Core Challenge: <span>Historical Orthography</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list challenge">
+                        <li><i class="fa-solid fa-language"></i> <strong>Mixed Script Complexity</strong> The raw records are not simple texts. They are a chaotic mixture of Hangul, traditional Hanja, and early 20th-century Japanese.</li>
+                        <li><i class="fa-solid fa-spell-check"></i> <strong>Japanese Colonial Kanji</strong> The extensive use of Japanese-style Hanja variants (Shinjitai) from the 1910s requires us to completely redefine orthographic and transcription rules.</li>
+                        <li><i class="fa-solid fa-filter"></i> <strong>Standardization First</strong> Before applying TEI tags or a Graph DB, a robust NLP preprocessing pipeline must be engineered to normalize these diverse characters.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="ortho-container">
+                            <div class="raw-chars">
+                                <div class="char-box"><div class="char-main">獨立</div><div style="color:#fbbf24;">Trad. Hanja</div></div>
+                                <div class="char-box"><div class="char-main" style="color:#f43f5e;">独立</div><div style="color:#f43f5e;">JP Variant</div></div>
+                                <div class="char-box"><div class="char-main">독립</div><div style="color:#38bdf8;">Hangul</div></div>
+                            </div>
+                            <i class="fa-solid fa-arrow-down-long" style="font-size: 20px; color: #475569;"></i>
+                            <div class="norm-engine"><i class="fa-solid fa-gear"></i><span>NLP Normalization Pipeline</span></div>
+                            <i class="fa-solid fa-arrow-down-long" style="font-size: 20px; color: #475569;"></i>
+                            <div class="clean-data">&lt;term&gt;独立&lt;/term&gt;&lt;gloss&gt;독립&lt;/gloss&gt;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-5">
-<h2 class="slide-title">Paradigm Shift: <span>Hierarchy to Network</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list highlight">
-<li><i class="fa-solid fa-sitemap"></i> <strong>TEI's Vertical Limit</strong> Document-centric XML is excellent for structure but struggles with horizontal cross-document relations.</li>
-<li><i class="fa-solid fa-diagram-project"></i> <strong>Ontology's Horizontal Power</strong> Breaking document boundaries to create an interconnected web of entities (Person, Place, Org).</li>
-<li><i class="fa-solid fa-bridge-water"></i> <strong>Structural Bridge</strong> Transforming rigid XML trees into dynamic semantic knowledge networks.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="paradigm-container">
-<div class="hierarchy-box">
-<div style="font-size:12px; color:#94a3b8; margin-bottom:10px;">TEI (Vertical Tree)</div>
-<div class="tree-node" style="border-color:#eab308;"><TEI> Doc</div>
-<div class="tree-node"><body></div>
-<div class="tree-node" style="border-color:#38bdf8;"><persName></div>
-</div>
-<div style="padding: 0 15px;"><i class="fa-solid fa-arrow-right-arrow-left" style="color:#818cf8;"></i></div>
-<div class="network-box" style="position:relative; height:200px; width:180px;">
-<div style="font-size:12px; color:#818cf8; margin-bottom:150px;">Graph (Network)</div>
-<div class="n-node" style="top:20px; left:70px; border-color:#eab308;">Event</div>
-<div class="n-node" style="bottom:20px; left:10px;">Person</div>
-<div class="n-node" style="bottom:20px; right:10px; border-color:#10b981;">Place</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 5: Paradigm Shift (TEI vs Ontology) -->
+    <div class="slide" id="slide-5">
+        <h2 class="slide-title">Paradigm Shift: <span>Hierarchy to Network</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list highlight">
+                        <li><i class="fa-solid fa-sitemap"></i> <strong>The Vertical Limit of TEI</strong> TEI (XML) is inherently hierarchical and document-centric. It is excellent for preserving text structure but struggles to map horizontal relationships that cross multiple documents.</li>
+                        <li><i class="fa-solid fa-diagram-project"></i> <strong>The Horizontal Power of Ontology</strong> Ontologies (CIDOC-CRM) and Graph Databases break document boundaries. They focus on entities—creating a horizontal, interconnected web of real-world history.</li>
+                        <li><i class="fa-solid fa-bridge-water"></i> <strong>The DH Bridge</strong> My pipeline solves this by transforming the rigid vertical hierarchies of TEI texts into a dynamic horizontal knowledge network.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="paradigm-container">
+                            <div class="hierarchy-box">
+                                <div class="h-title">TEI (Vertical Tree)</div>
+                                <div class="tree-node tree-root">&lt;TEI&gt; Document</div>
+                                <div class="tree-level split">
+                                    <div class="tree-node">&lt;body&gt;</div>
+                                    <div class="tree-node">&lt;header&gt;</div>
+                                </div>
+                                <div class="tree-level split">
+                                    <div class="tree-node t-leaf">&lt;persName&gt;</div>
+                                    <div class="tree-node t-leaf">&lt;placeName&gt;</div>
+                                </div>
+                            </div>
+                            <div class="transform-arrow"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                            <div class="network-box">
+                                <div class="h-title" style="color: #818cf8;">Graph (Horizontal Network)</div>
+                                <div class="net-nodes">
+                                    <div class="n-edge" style="width: 70px; top: 30px; left: 70px; transform: rotate(110deg);"></div>
+                                    <div class="n-edge" style="width: 90px; top: 30px; left: 70px; transform: rotate(45deg);"></div>
+                                    <div class="n-edge" style="width: 100px; top: 90px; left: 30px; transform: rotate(-20deg);"></div>
+                                    <div class="n-edge" style="width: 70px; bottom: 70px; left: 30px; transform: rotate(10deg);"></div>
+                                    <div class="n-node c1">Event</div>
+                                    <div class="n-node c2">Person</div>
+                                    <div class="n-node c3">Place</div>
+                                    <div class="n-node c4">Org</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-6">
-<h2 class="slide-title">Beyond Search: <span>Generative AI (RAG)</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list">
-<li><i class="fa-solid fa-magnifying-glass-chart"></i> <strong>Keyword Limitation</strong> Traditional engines miss complex, hidden patterns across thousands of disparate records.</li>
-<li><i class="fa-solid fa-brain"></i> <strong>RAG Architecture</strong> Layering Retrieval-Augmented Generation over the Graph DB for natural language inquiry.</li>
-<li><i class="fa-solid fa-shield-halved"></i> <strong>Hallucination-Free</strong> LLMs grounded in ontological facts ensure absolute historical accuracy in answers.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="rag-container">
-<div class="rag-top">
-<div class="rag-icon-wrapper"><i class="fa-regular fa-comment-dots icon-circle"></i><span>Query</span></div>
-<div class="rag-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
-<div class="rag-icon-wrapper"><i class="fa-solid fa-diagram-project icon-circle"></i><span>Search</span></div>
-<div class="rag-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
-<div class="rag-icon-wrapper ai"><i class="fa-solid fa-brain icon-circle"></i><span>AI Gen</span></div>
-</div>
-<i class="fa-solid fa-arrow-down-long" style="color: #475569;"></i>
-<div class="rag-output"><i class="fa-solid fa-check-circle"></i> Fact-Based Answer</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 6: Beyond Search (RAG) -->
+    <div class="slide" id="slide-6">
+        <h2 class="slide-title">Beyond Search: <span>Generative AI (RAG)</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list">
+                        <li><i class="fa-solid fa-magnifying-glass-chart"></i> <strong>Keyword Limitation</strong> Traditional engines only match words, missing complex multi-layered networks across records.</li>
+                        <li><i class="fa-solid fa-brain"></i> <strong>RAG Architecture</strong> Layering a Retrieval-Augmented Generation (RAG) system over the Graph DB allows for complex natural language queries.</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> <strong>Hallucination-Free</strong> LLMs generate answers strictly grounded in the TEI-tagged ontological graph, ensuring absolute historical accuracy.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="rag-container">
+                            <div class="rag-top">
+                                <div class="rag-icon-wrapper">
+                                    <i class="fa-regular fa-comment-dots icon-circle"></i>
+                                    <span>User Query</span>
+                                </div>
+                                <div class="rag-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                                <div class="rag-icon-wrapper">
+                                    <i class="fa-solid fa-diagram-project icon-circle"></i>
+                                    <span>Graph Search</span>
+                                </div>
+                                <div class="rag-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                                <div class="rag-icon-wrapper ai">
+                                    <i class="fa-solid fa-brain icon-circle"></i>
+                                    <span>LLM Gen</span>
+                                </div>
+                            </div>
+                            <div class="rag-arrow-down"><i class="fa-solid fa-arrow-down-long"></i></div>
+                            <div class="rag-output">
+                                <i class="fa-solid fa-check-circle"></i> Hallucination-Free Answer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-7">
-<h2 class="slide-title">Hybrid Architecture: <span>The 'Docent' Engine</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list">
-<li><i class="fa-solid fa-filter"></i> <strong>PGSQL Context Filtering</strong> Efficient keyword filtering and 1st-stage entity extraction.</li>
-<li><i class="fa-solid fa-circle-nodes"></i> <strong>Dynamic Neo4j Graph</strong> Instant relationship mapping for specific filtered nodes.</li>
-<li><i class="fa-solid fa-user-tie"></i> <strong>The LLM 'Docent'</strong> Generating comprehensive, narrative historical explanations for researchers.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="hybrid-row">
-<div class="hybrid-box" style="border-color:#336791;"><i class="fa-solid fa-database" style="color:#38bdf8;"></i><div class="h-title">PostgreSQL</div></div>
-<div class="hybrid-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
-<div class="hybrid-box" style="border-color:#eab308;"><i class="fa-solid fa-diagram-project" style="color:#eab308;"></i><div class="h-title">Neo4j</div></div>
-</div>
-<i class="fa-solid fa-arrow-down-long" style="color:#475569; margin: 10px 0;"></i>
-<div class="hybrid-box" style="border-color:#818cf8; width:180px;"><i class="fa-solid fa-brain" style="color:#818cf8;"></i><div class="h-title">LLM Engine</div></div>
-<div class="hybrid-doc" style="margin-top:15px;"><i class="fa-regular fa-file-lines"></i>Curated Historical Narrative</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 7: Hybrid Pipeline Architecture -->
+    <div class="slide" id="slide-7">
+        <h2 class="slide-title">Hybrid Architecture: <span>The 'Docent' Engine</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list">
+                        <li><i class="fa-solid fa-filter"></i> <strong>1. PGSQL Context Filtering</strong> Moving the entire dataset to a graph is inefficient. We first query PostgreSQL to filter relevant keywords and extract core entities.</li>
+                        <li><i class="fa-solid fa-circle-nodes"></i> <strong>2. Dynamic Neo4j Graph</strong> The extracted entities are passed to Neo4j to instantly map and calculate the hidden 'relationships' between those specific nodes.</li>
+                        <li><i class="fa-solid fa-user-tie"></i> <strong>3. The LLM 'Docent'</strong> Finally, the LLM acts as a digital curator. It reads the graph relationships and generates a comprehensive, narrative explanation for the researcher.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="hybrid-container">
+                            <div class="hybrid-row">
+                                <div class="hybrid-box pg">
+                                    <i class="fa-solid fa-database"></i>
+                                    <div class="h-title">PostgreSQL</div>
+                                    <div class="h-desc">Keyword Search &<br>Entity Extraction</div>
+                                </div>
+                                <div class="hybrid-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                                <div class="hybrid-box neo">
+                                    <i class="fa-solid fa-diagram-project"></i>
+                                    <div class="h-title">Neo4j</div>
+                                    <div class="h-desc">Dynamic Graph<br>Relationship Mapping</div>
+                                </div>
+                            </div>
+                            <div class="hybrid-arrow" style="margin-top: 5px;"><i class="fa-solid fa-arrow-down-long"></i></div>
+                            <div class="hybrid-row">
+                                <div class="hybrid-box llm">
+                                    <i class="fa-solid fa-brain"></i>
+                                    <div class="h-title">LLM Engine</div>
+                                    <div class="h-desc">Narrative Synthesis</div>
+                                </div>
+                            </div>
+                            <div class="hybrid-doc">
+                                <i class="fa-regular fa-file-lines"></i>
+                                "Curated Historical Narrative"
+                                <span>Generated by Digital Docent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-8">
-<h2 class="slide-title">Scaling to Global Archives: <span>EEBO-TCP</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list eebo">
-<li><i class="fa-solid fa-book-journal-whills"></i> <strong>70,000+ TEI Books</strong> EEBO-TCP is the ultimate historical material, yet mostly limited to static search.</li>
-<li><i class="fa-solid fa-gears"></i> <strong>TEI Ingest Engine</strong> The 'Docent' pipeline is built to ingest standard TEI tags and automatically map Neo4j relations.</li>
-<li><i class="fa-solid fa-rocket"></i> <strong>Rapid Transformation</strong> Instantly converting static archives into dynamic, AI-queryable knowledge graphs of 15th-17th century history.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div style="display:flex; align-items:center; gap:20px; width:100%; justify-content:center; z-index:2;">
-<div class="eebo-node"><i class="fa-solid fa-book-open-reader" style="color:#eab308; font-size:30px;"></i><div style="font-weight:700; margin-top:10px;">EEBO-TCP</div></div>
-<i class="fa-solid fa-arrow-right-long" style="color:#475569;"></i>
-<div class="eebo-node docent"><i class="fa-solid fa-network-wired" style="color:#38bdf8; font-size:30px;"></i><div style="font-weight:700; margin-top:10px;">Docent Engine</div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 8: EEBO-TCP Scalability -->
+    <div class="slide" id="slide-8">
+        <h2 class="slide-title">Scaling to Global Archives: <span>EEBO-TCP</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list eebo">
+                        <li><i class="fa-solid fa-book-journal-whills"></i> <strong>The Ultimate Material</strong> EEBO-TCP contains 70,000+ early English books perfectly encoded in TEI XML. However, it currently functions mostly as a static text-search archive.</li>
+                        <li><i class="fa-solid fa-gears"></i> <strong>The Perfect Engine</strong> My <code>docent</code> pipeline is specifically built to ingest TEI XML (`&lt;persName&gt;`, `&lt;placeName&gt;`) and automatically generate Neo4j relationships.</li>
+                        <li><i class="fa-solid fa-rocket"></i> <strong>Immediate Synergy</strong> This pipeline can instantly transform EEBO-TCP from a static text repository into a dynamic, AI-queryable Knowledge Graph of 15th-17th century intellectual history.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="eebo-container">
+                            <div class="eebo-node">
+                                <i class="fa-solid fa-book-open-reader eebo-icon"></i>
+                                <div class="eebo-title">EEBO-TCP</div>
+                                <div class="eebo-desc">70,000+ Books<br>Static TEI XML<br>(1473-1700)</div>
+                            </div>
+                            <div class="eebo-arrow-container">
+                                <div class="eebo-badge">TEI Ingest</div>
+                                <i class="fa-solid fa-arrow-right-long" style="font-size: 24px; color: #475569;"></i>
+                            </div>
+                            <div class="eebo-node docent">
+                                <i class="fa-solid fa-network-wired eebo-icon"></i>
+                                <div class="eebo-title">"Docent" Pipeline</div>
+                                <div class="eebo-desc">Hybrid Graph DB<br>+ RAG Framework<br>(Natural Language)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="slide" id="slide-9">
-<h2 class="slide-title">Expected Synergy with <span>DSC</span></h2>
-<div class="content-area">
-<div class="two-column">
-<div class="text-content">
-<ul class="bullet-list">
-<li><i class="fa-solid fa-share-nodes"></i> <strong>Methodology Sharing</strong> Openly sharing the hybrid data pipeline and Neo4j implementation with DSC researchers.</li>
-<li><i class="fa-solid fa-server"></i> <strong>Technical Support</strong> Providing hands-on assistance for backend architecture in ongoing DSC text mining projects.</li>
-<li><i class="fa-solid fa-globe"></i> <strong>Global Benchmarking</strong> Refining the architecture for both Korean and Western historical datasets within the DSC ecosystem.</li>
-</ul>
-</div>
-<div class="infographic-box">
-<div class="orbit"></div>
-<div class="center-node">DSC</div>
-<div style="position:absolute; bottom:50px; text-align:center; font-weight:600; color:#38bdf8;">Integration Hub</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- Slide 9: Synergy -->
+    <div class="slide" id="slide-9">
+        <h2 class="slide-title">Expected Synergy with <span>DSC</span></h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="text-content">
+                    <ul class="bullet-list">
+                        <li><i class="fa-solid fa-share-nodes"></i> <strong>Methodology Sharing</strong> Openly sharing the <code>docent</code> hybrid data pipeline and Neo4j implementation methods with DSC researchers.</li>
+                        <li><i class="fa-solid fa-server"></i> <strong>Technical Support</strong> Providing practical, hands-on assistance for backend architecture design in ongoing text mining and semantic web projects.</li>
+                        <li><i class="fa-solid fa-globe"></i> <strong>Global Standard</strong> Collaborating to apply this graph architecture to both Korean history and global archives like EEBO-TCP within the DSC framework.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="infographic-box">
+                        <div class="synergy-container">
+                            <div class="orbit">
+                                <div class="orbit-node n1" title="Python"><i class="fa-brands fa-python"></i></div>
+                                <div class="orbit-node n2" title="Neo4j"><i class="fa-solid fa-database"></i></div>
+                                <div class="orbit-node n3" title="Global DH"><i class="fa-solid fa-earth-americas"></i></div>
+                            </div>
+                            <div class="center-node">
+                                DSC
+                                <span>Synergy Core</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="controls">
-<button id="prevBtn" title="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
-<span class="slide-counter"><span id="currentNum">1</span> / 9</span>
-<button id="nextBtn" title="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
-</div>
+    <!-- Navigation Controls -->
+    <div class="controls">
+        <button id="prevBtn" title="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <span class="slide-counter"><span id="currentNum">1</span> / 9</span>
+        <button id="nextBtn" title="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
 
-<div class="progress-bar-container">
-<div class="progress-bar" id="progressBar"></div>
-</div>
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const currentNum = document.getElementById('currentNum');
-const progressBar = document.getElementById('progressBar');
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentNum = document.getElementById('currentNum');
+        const progressBar = document.getElementById('progressBar');
+        
+        let currentSlideIndex = 0;
+        const totalSlides = slides.length;
 
-let currentSlideIndex = 0;
-const totalSlides = slides.length;
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlideIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
 
-function updateSlider() {
-slides.forEach((slide, index) => {
-if (index === currentSlideIndex) {
-slide.classList.add('active');
-} else {
-slide.classList.remove('active');
-}
-});
+            currentNum.textContent = currentSlideIndex + 1;
+            const progressPercentage = ((currentSlideIndex) / (totalSlides - 1)) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
 
-currentNum.textContent = currentSlideIndex + 1;
-const progressPercentage = ((currentSlideIndex) / (totalSlides - 1)) * 100;
-progressBar.style.width = ${progressPercentage}%;
+            prevBtn.style.opacity = currentSlideIndex === 0 ? '0.3' : '1';
+            prevBtn.style.cursor = currentSlideIndex === 0 ? 'default' : 'pointer';
+            
+            nextBtn.style.opacity = currentSlideIndex === totalSlides - 1 ? '0.3' : '1';
+            nextBtn.style.cursor = currentSlideIndex === totalSlides - 1 ? 'default' : 'pointer';
+        }
 
-prevBtn.style.opacity = currentSlideIndex === 0 ? '0.3' : '1';
-prevBtn.style.cursor = currentSlideIndex === 0 ? 'default' : 'pointer';
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                updateSlider();
+            }
+        }
 
-nextBtn.style.opacity = currentSlideIndex === totalSlides - 1 ? '0.3' : '1';
-nextBtn.style.cursor = currentSlideIndex === totalSlides - 1 ? 'default' : 'pointer';
-}
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                updateSlider();
+            }
+        }
 
-function nextSlide() { if (currentSlideIndex < totalSlides - 1) { currentSlideIndex++; updateSlider(); } }
-function prevSlide() { if (currentSlideIndex > 0) { currentSlideIndex--; updateSlider(); } }
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
 
-document.addEventListener('keydown', (e) => {
-if (e.key === 'ArrowRight' || e.key === 'Space') { nextSlide(); }
-else if (e.key === 'ArrowLeft') { prevSlide(); }
-});
-
-updateSlider();
-});
+        updateSlider();
+    });
 </script>
 
 </body>
 </html>
+```eof
