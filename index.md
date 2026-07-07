@@ -189,8 +189,7 @@ layout: default
 * **언어:** Python
 * **설명:** 지식 전달 및 교육용 플랫폼
 * **GitHub:** https://github.com/tsarkr/docent
-* **SITE:** https://gyungmin.tsar.kr/docent/(https://gyungmin.tsar.kr/docent/)
-
+* **SITE:** [https://gyungmin.tsar.kr/docent/](https://gyungmin.tsar.kr/docent/)
 ## URL Shortener
 * **언어:** PHP
 * **설명:** PHP 기반 URL 단축 서비스
