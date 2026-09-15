@@ -27,6 +27,9 @@ layout: default
 
 ---
 
+# Univ. of Alberta
+* Digital Scholarship Centre 방문학자(2026. 9. 1. ~ 2027. 5. 31.)
+
 # 국가유산진흥원
 
 ## 주요업무 --
