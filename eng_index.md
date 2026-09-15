@@ -27,6 +27,9 @@ layout: default
 
 ---
 
+# Univ. of Alberta
+* Digital Scholarship Centre Visiting Scholar(2026. 9. 1. ~ 2027. 5. 31.)
+
 # Korea Heritage Agency (formerly Korea Cultural Heritage Foundation)
 
 ## Key Responsibilities --
