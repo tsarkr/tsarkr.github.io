@@ -191,10 +191,10 @@ layout: default
 * **Description:** A tool for collecting and analyzing Korean Citation Index (KCI) academic papers
 * **GitHub:** https://github.com/tsarkr/kci_scrape
 
-## Docent
+## D-CENT
 * **Language:** Python
 * **Description:** A knowledge transfer and educational platform
-* **GitHub:** https://github.com/tsarkr/docent
+* **GitHub:** [https://github.com/tsarkr/docent](https://github.com/tsarkr/D-CENT)
 
 ## URL Shortener
 * **Language:** PHP

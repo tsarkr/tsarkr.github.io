@@ -188,10 +188,10 @@ layout: default
 * **설명:** KCI(Korean Citation Index) 논문 데이터 수집 및 분석 도구
 * **GitHub:** https://github.com/tsarkr/kci_scrape
 
-## Docent
+## D-CENT
 * **언어:** Python
-* **설명:** 지식 전달 및 교육용 플랫폼
-* **GitHub:** https://github.com/tsarkr/docent
+* **설명:** 3.1운동 데이터기반 지식 그래프 및 도슨트 제공
+* **GitHub:** https://github.com/tsarkr/D-CENT
 * **SITE:** [https://gyungmin.tsar.kr/docent/](https://gyungmin.tsar.kr/docent/)
 
 ## URL Shortener
