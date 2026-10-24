@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 ## 박사과정생 연구기록
 
@@ -14,8 +17,8 @@
 - [redditgo](https://github.com/tsarkr/redditgo) — 한국어·중국어·일본어 Reddit 데이터 수집 및 감성 분석 도구.
 - [kci_scrape](https://github.com/tsarkr/kci_scrape) — KCI 논문 메타데이터 스크래핑 및 공저 네트워크 시각화 스크립트.
 - [K-D-H](https://github.com/tsarkr/K-D-H) — K-pop 관련 데이터 분석 및 실험 프로젝트.
-- [docent](https://github.com/tsarkr/docent) — 연구에서 재사용하는 유틸리티 도구와 로더 모음.
-- [darkstar](https://github.com/tsarkr/darkstar) — Rust 기반 온톨로지 관리 툴(프로토타입).
+- [D-CENT](https://github.com/tsarkr/D-CENT) — 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고 질문별 역사 서사를 재구성하는 연구 프레임워크.
+- [darkstar](https://github.com/tsarkr/darkstar) — Rust 기반 전문 OWL 2 RL 온톨로지 편집기이자 추론 엔진.
 
 원하시면 특정 저장소의 요약이나 사용 예시, README 주요 내용을 더 추가해드리겠습니다.
  
@@ -25,31 +28,9 @@ English — GitHub project highlights
 - `redditgo` — Reddit data collection and multilingual sentiment analysis toolkit (KR/JP/CN).
 - `kci_scrape` — Scrapers for KCI metadata and co-authorship network visualization scripts.
 - `K-D-H` — K-pop related analysis and experimental datasets.
-- `docent` — Utility libraries and data loaders shared across research projects.
-- `darkstar` — Rust-based ontology management prototype for scripted and web workflows.
-layout: default
----
+- `D-CENT` — Digital Contextualized Entity & Narrative Technology, a research framework that connects March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j to reconstruct dated narratives.
+- `darkstar` — A professional Rust-based OWL 2 RL ontology editor and inference engine with SPARQL/DL queries, explanation tools, plugin support, and graph visualization.
 
-
-# Visualizing "Korea" on YouTube
-[Explore the Interactive Dashboard](https://tsarkr-youtube.streamlit.app/)
-
-This project offers an in-depth analysis of YouTube videos resulting from searches for "Korea." 
-It visualizes key trends, popular topics, and viewer engagement to uncover how Korea is represented and perceived on the global stage.
-
-Overview
-- 목적: "Korea" 검색 결과로 나오는 동영상의 주제, 발행자 유형, 조회수/좋아요 분포, 시간에 따른 트렌드를 시각화하여 대외 이미지와 담론을 분석합니다.
-- 데이터: YouTube Data API로 수집한 메타데이터(제목, 설명, 업로더, 날짜, 조회수, 좋아요, 댓글 수) 및 댓글 텍스트(선택적 수집).
-- 방법: 토픽 모델링, 키워드 추출, 시계열 분석 및 대시보드(Streamlit)를 통한 상호작용적 탐색.
-- 주요 결과(예시): 특정 기간에 관광/한류 관련 영상의 도달률 증가, 국가 이미지 관련 키워드 분포, 해외 업로더의 관점 차이 등.
-- 기술스택: Python, pandas, scikit-learn, gensim, Streamlit, YouTube Data API.
-
-English summary
-- Purpose: Visualize topics, uploader types, view/like distributions, and temporal trends for videos returned by the search term "Korea" to analyze international representations and discourse.
-- Data: Metadata from the YouTube Data API (title, description, uploader, publish date, views, likes, comment counts) and optional comment text collection.
-- Methods: Topic modeling, keyword extraction, time-series analysis, and an interactive Streamlit dashboard for exploration.
-- Example findings: Periodic increases in tourism/K-pop related reach, keyword distributions related to national image, and differences in perspective between domestic and overseas uploaders.
-- Tech stack: Python, pandas, scikit-learn, gensim, Streamlit, YouTube Data API.
 
 # Shortener 11e
 [Short URL service](https://11e.kr)
