@@ -169,11 +169,12 @@ layout: default
 
 ## Darkstar: Professional OWL 2 RL Ontology Editor
 * **Language:** Rust
-* **Description:** Darkstar is a high-performance, professional-grade ontology editor and inference engine built with Rust. It provides a visual and intuitive interface for managing complex OWL 2 RL ontologies with real-time reasoning and state-of-the-art graph visualization capabilities.
+* **Description:** Darkstar is a professional Rust-based OWL 2 RL ontology editor and inference engine with SPARQL/DL queries, explanation tools, dynamic plugins, and advanced graph visualization.
 * **Key Features:**
   - Professional Reasoning Engine: Full OWL 2 RL compliance with high-performance parallel forward-chaining using Rayon
   - State-of-the-Art Graph Visualization: Multiple layout support (Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid)
-  - Smart Z-index management and collision avoidance algorithms
+  - SPARQL 1.1 and Manchester Syntax DL query support
+  - Inference explanations, dynamic plugins, and Turtle/RDF editing and validation
 * **GitHub:** https://github.com/tsarkr/darkstar
 
 ## K-Heritage Content Analysis
@@ -193,8 +194,9 @@ layout: default
 
 ## D-CENT
 * **Language:** Python
-* **Description:** A knowledge transfer and educational platform
-* **GitHub:** [https://github.com/tsarkr/docent](https://github.com/tsarkr/D-CENT)
+* **Description:** A RAG-based research framework that connects March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j to reconstruct dated narratives with citations.
+* **GitHub:** https://github.com/tsarkr/D-CENT
+* **Site:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
 
 ## URL Shortener
 * **Language:** PHP

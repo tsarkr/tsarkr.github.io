@@ -166,11 +166,12 @@ layout: default
 
 ## Darkstar: Professional OWL 2 RL Ontology Editor
 * **언어:** Rust
-* **설명:** Darkstar는 Rust로 개발된 고성능 전문가급 온톨로지 에디터 및 추론 엔진입니다. OWL 2 RL 온톨로지를 관리하기 위한 시각적이고 직관적인 인터페이스를 제공하며, 실시간 추론과 최첨단 그래프 시각화 기능을 갖추고 있습니다.
+* **설명:** Darkstar는 Rust로 개발된 전문 OWL 2 RL 온톨로지 편집기이자 추론 엔진입니다. SPARQL 및 DL 쿼리, 추론 설명, 동적 플러그인, 고급 그래프 시각화 기능을 제공합니다.
 * **주요 기능:**
   - Professional Reasoning Engine: Rayon을 사용한 고성능 병렬 Forward-chaining으로 OWL 2 RL 완벽 준수
   - State-of-the-Art Graph Visualization: 다양한 레이아웃 지원 (Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid)
-  - 스마트 Z-index 관리와 충돌 회피 알고리즘
+  - SPARQL 1.1 및 Manchester Syntax DL Query 지원
+  - 추론 결과 설명, 동적 플러그인, Turtle/RDF 편집 및 검증 지원
 * **GitHub:** https://github.com/tsarkr/darkstar
 
 ## K-Heritage Content Analysis
@@ -190,9 +191,9 @@ layout: default
 
 ## D-CENT
 * **언어:** Python
-* **설명:** 3.1운동 데이터기반 지식 그래프 및 도슨트 제공
+* **설명:** 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고 질문별 역사 서사를 인용과 함께 재구성하는 RAG 기반 연구 프레임워크입니다.
 * **GitHub:** https://github.com/tsarkr/D-CENT
-* **SITE:** [https://gyungmin.tsar.kr/docent/](https://gyungmin.tsar.kr/docent/)
+* **SITE:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
 
 ## URL Shortener
 * **언어:** PHP
