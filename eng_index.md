@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[Kor](./index.html) | [Ph.D. Research Notes](./another-page.html) | [App: 하루성장노트 (Daily Growth Note)](./harudiary.html)
+[Kor](./index.html) | [Ph.D. Research Notes](./another-page.html)
 
 # General Overview
 
