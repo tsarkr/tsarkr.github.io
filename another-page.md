@@ -8,96 +8,99 @@ layout: default
 
 ---
 
-## GitHub — 주요 프로젝트 (tsarkr)
+## GitHub — 연구 프로젝트 (tsarkr)
 
-다음은 GitHub 계정 `tsarkr`의 주요 저장소입니다. 각 링크의 README를 참고하면 설치 및 사용법을 확인할 수 있습니다.
+GitHub 계정 [tsarkr](https://github.com/tsarkr)의 공개 저장소입니다. 설치와 사용법은 각 저장소의 README를 참고하세요.
 
-- [shortener_11e](https://github.com/tsarkr/shortener_11e) — PHP 기반 URL 단축기(11e.kr). 간단한 리다이렉트 및 통계 기능 제공.
-- [k-heritage](https://github.com/tsarkr/k-heritage) — 국가유산 채널 댓글 텍스트 마이닝 및 분석 파이프라인.
-- [redditgo](https://github.com/tsarkr/redditgo) — 한국어·중국어·일본어 Reddit 데이터 수집 및 감성 분석 도구.
-- [kci_scrape](https://github.com/tsarkr/kci_scrape) — KCI 논문 메타데이터 스크래핑 및 공저 네트워크 시각화 스크립트.
-- [K-D-H](https://github.com/tsarkr/K-D-H) — K-pop 관련 데이터 분석 및 실험 프로젝트.
-- [D-CENT](https://github.com/tsarkr/D-CENT) — 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고 질문별 역사 서사를 재구성하는 연구 프레임워크.
-- [darkstar](https://github.com/tsarkr/darkstar) — Rust 기반 전문 OWL 2 RL 온톨로지 편집기이자 추론 엔진.
+| 저장소 | 언어 | 내용 |
+|---|---|---|
+| [D-CENT](https://github.com/tsarkr/D-CENT) | Python, PHP | 3·1운동 기록 기반 RAG 역사 서사 재구성 프레임워크 ([사이트](https://gyungmin.tsar.kr/D-CENT/)) |
+| [darkstar](https://github.com/tsarkr/darkstar) | Rust | OWL 2 RL 온톨로지 편집기·추론 엔진 ([사이트](https://gyungmin.tsar.kr/darkstar/)) |
+| [hexedit](https://github.com/tsarkr/hexedit) | TypeScript | 웹 기반 16진수 편집기 ([사이트](https://gyungmin.tsar.kr/hexedit/)) |
+| [K-D-H](https://github.com/tsarkr/K-D-H) | Python | 「케이팝 데몬 헌터스」 유튜브 댓글 분석 |
+| [k-heritage](https://github.com/tsarkr/k-heritage) | Python | 국가유산채널 유튜브 댓글 텍스트 마이닝 |
+| [kci_scrape](https://github.com/tsarkr/kci_scrape) | Python | KCI 논문 수집, 연구 동향·공저 네트워크 분석 |
+| [redditgo](https://github.com/tsarkr/redditgo) | Jupyter Notebook | Reddit 한·중·일 게시물 감정 분석 및 토픽 모델링 |
+| [shortener_11e](https://github.com/tsarkr/shortener_11e) | PHP | URL 단축 서비스 ([11e.kr](https://11e.kr)) |
 
-원하시면 특정 저장소의 요약이나 사용 예시, README 주요 내용을 더 추가해드리겠습니다.
- 
-English — GitHub project highlights
-- `shortener_11e` — PHP-based URL shortener powering 11e.kr; simple redirect and demo analytics.
-- `k-heritage` — YouTube comment text-mining and analysis pipeline for the K-Heritage channel.
-- `redditgo` — Reddit data collection and multilingual sentiment analysis toolkit (KR/JP/CN).
-- `kci_scrape` — Scrapers for KCI metadata and co-authorship network visualization scripts.
-- `K-D-H` — K-pop related analysis and experimental datasets.
-- `D-CENT` — Digital Contextualized Entity & Narrative Technology, a research framework that connects March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j to reconstruct dated narratives.
-- `darkstar` — A professional Rust-based OWL 2 RL ontology editor and inference engine with SPARQL/DL queries, explanation tools, plugin support, and graph visualization.
+---
 
+# D-CENT
+[GitHub](https://github.com/tsarkr/D-CENT) | [Site](https://gyungmin.tsar.kr/D-CENT/)
 
-# Shortener 11e
-[Short URL service](https://11e.kr)
+Digital Contextualized Entity & Narrative Technology. 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고, 질문마다 날짜가 있는 사건 서사를 기록 인용과 함께 재구성합니다.
 
-Shortener 11e is a URL shortening service initially developed with ChatGPT and enhanced with GitHub Copilot.
-It provides a service that converts long URLs into shorter, memorable links.
+- 데이터 구축: 원천 자료 → PostgreSQL/TEI → Neo4j 그래프. 인명 태깅(한자 독음 ruby), 인물사전(i815) 연계, CIDOC-CRM 매핑, 한국사 시소러스 연결
+- 웹 도슨트: 그래프 조회, Text-to-Cypher, 하이브리드 기록 검색(BM25 + dense + cross-encoder), LLM 1회 호출로 서사 생성
+- 평가: 벤치마크 구축, 시스템 비교, 역사 전문가 검증 및 블라인드 평가
+- MCP 클라이언트용 읽기 전용 데이터베이스 도구 제공
 
-Features
-- 간단한 단축 URL 생성 및 리다이렉트
-- 커스텀 키 지정(중복 검사 포함)
-- 간단한 방문 통계(클릭 수, 생성일)
-- 보안: 입력 URL 검증 및 악성 URL 차단(기본 수준)
+English: A RAG-based research framework that links March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j and reconstructs dated narratives with citations to the records.
 
-Tech / Deployment
-- 구현: (예) Flask 또는 FastAPI 기반 API, SQLite 또는 간단한 Key-Value 스토어
-- 배포: Heroku, Netlify Functions, 또는 간단한 VPS에 컨테이너 배포 가능
+# Darkstar
+[GitHub](https://github.com/tsarkr/darkstar) | [Site](https://gyungmin.tsar.kr/darkstar/)
 
-English summary
-- Shortener 11e is a lightweight URL shortening service that creates short redirects for long URLs.
-- Features: short URL creation and redirect, custom key support with collision checks, basic visit statistics (click counts, creation date), and basic URL validation/security checks.
+Rust로 만든 OWL 2 RL 온톨로지 편집기이자 추론 엔진(Protégé 대안)입니다.
 
-English tech notes
-- Implementation: Example implementations use Flask or FastAPI with SQLite or a simple key-value store.
-- Deployment: Can be deployed to Heroku, Netlify Functions, or a containerized VPS for a simple demo or production use.
+- Rayon 기반 병렬 Forward-chaining 추론과 추론 근거(Justification) 추적
+- SPARQL 1.1(Oxigraph 구성요소 기반)과 Manchester Syntax DL Query
+- 여러 레이아웃의 그래프 시각화, Turtle/RDF 소스 편집기, `owl:imports` 처리
+- 네이티브 동적 플러그인(.dylib/.so/.dll) 로딩
 
+English: A Rust-based OWL 2 RL ontology editor and inference engine with SPARQL/DL queries, inference explanations, dynamic plugins, and graph visualization.
+
+# K-D-H (K-Pop Demon Hunters)
+[GitHub](https://github.com/tsarkr/K-D-H)
+
+유튜브 플레이리스트 댓글을 수집해 팬덤 반응을 분석합니다.
+
+- 수집: YouTube Data API
+- 분석: VADER 감정 분석, 키워드 동시출현 네트워크, BERTopic + UMAP 토픽 모델링(시드 고정)
+- 결과: 감정 분포 도넛 차트, 주요 토픽 바 차트, 키워드 네트워크 그래프(Gephi용 GEXF)
+- 관련 논문: [경계의 상상력, K-콘텐츠의 미래를 열다 (디아스포라연구 제19권 제2호)](./경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
+
+English: Collects YouTube playlist comments and analyzes fandom reactions with VADER sentiment analysis, keyword co-occurrence networks, and BERTopic.
 
 # K-Heritage
-[K-Heritage](https://github.com/tsarkr/k-heritage)
+[GitHub](https://github.com/tsarkr/k-heritage)
 
-Comment Analysis of the K-heritage.tv YouTube Channel
+국가유산채널(K-heritage.tv) 유튜브 댓글 분석
 
-[텍스트마이닝을 이용한 국가유산채널 영상콘텐츠 수용자 반응 분석.pdf](https://tsarkr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
+- 수집: YouTube API로 영상별 댓글 수집
+- 분석: 자연어 처리 기반 텍스트 분석, 키워드 및 주제 추출
+- 시각화: 분석 결과 그래프·차트
+- 관련 논문: [텍스트마이닝을 이용한 국가유산채널 영상 콘텐츠 수용자 반응 분석 (미디어융합연구 제38집)](./텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
 
-Project Notes
-- 목적: 국가유산 채널의 댓글을 통해 시청자 반응(감성, 관심사, 피드백 유형)을 파악합니다.
-- 데이터: 채널 영상별 댓글 수집 및 전처리(불용어 제거, 형태소 분석 등).
-- 분석기법: 감성분석, 토픽모델링, 빈도 기반 키워드 분석.
-- 산출물: 논문 및 리포트, 재현 가능한 분석 파이프라인(스크립트 포함).
+English: Comment analysis of the K-heritage.tv YouTube channel — comment collection, text mining, keyword and topic extraction, and visualization.
 
-English summary
-- Purpose: Analyze audience reactions (sentiment, interests, feedback types) from comments on the national heritage channel.
-- Data: Collected and preprocessed comments per video (stopword removal, morphological analysis).
-- Methods: Sentiment analysis, topic modeling, and frequency-based keyword analysis.
-- Deliverables: Academic paper and reports, along with reproducible analysis pipelines and scripts.
+# KCI Scrape
+[GitHub](https://github.com/tsarkr/kci_scrape)
 
+KCI 논문 데이터를 수집해 "문화유산 큐레이션" 분야의 연구 동향과 저자 네트워크를 분석합니다.
+
+- 논문 상세 정보 스크래핑(제목, 저자, 초록, 키워드, 발행년도)
+- 키워드(예: AI/XR) 포함 논문의 연도별 비율 등 연구 동향 분석
+- 공저 네트워크 및 기간별(2019년 이전/2020년 이후) 비교, 단독·공저 논문 수 비교
+
+English: Scrapes KCI paper data and analyzes research trends and co-authorship networks in cultural heritage curation.
 
 # RedditGo
-[RedditGo](https://github.com/tsarkr/redditgo)
+[GitHub](https://github.com/tsarkr/redditgo)
 
-**RedditGo** is a project that gathers posts and comments from Korean, Chinese, and Japanese communities on Reddit,  
-providing a multifaceted analysis of sentiment changes during the COVID-19 pandemic.
+Reddit의 한국·중국·일본 관련 게시물과 댓글을 대상으로 COVID-19 전후의 감정 변화를 비교합니다.
 
-- **Multi-language Support**: Focused on Korean, Chinese, and Japanese sentiment analysis
-- **Sentiment Shift Detection**: Compares pre-/post-data to track emotional trends
-- **Extensibility**: Easily integrate additional languages or modules for enhanced functionality
+- 7가지 감정 분류(기쁨, 슬픔, 분노, 두려움, 혐오, 놀람, 중립)
+- 토픽 모델링: SentenceTransformer + UMAP + HDBSCAN 기반 BERTopic
+- TF-IDF 키워드 추출, 토픽·감정별 시각화
 
-Notes
-- 데이터 수집: Reddit API(PRAW 등)로 서브레딧별 게시글/댓글 수집 및 언어별 필터링
-- 전처리: 언어별 토크나이저/형태소분석기(예: KoNLPy, Jieba, MeCab) 적용
-- 분석: 시계열 감성 추적, 이벤트 기반 변화 탐지(예: 주요 뉴스·정책 발표 전후)
-- 확장 아이디어: 시각화 대시보드, 경향 알림(임계값 기반), 추가 언어 지원
+English: Sentiment analysis and BERTopic topic modeling of Korea/China/Japan-related Reddit posts and comments, comparing pre- and post-COVID-19 periods.
 
-English notes
-- Data collection: Use Reddit API (PRAW or equivalent) to collect posts and comments per subreddit with language filtering.
-- Preprocessing: Apply language-specific tokenizers and morphological analyzers (e.g., KoNLPy, Jieba, MeCab).
-- Analysis: Track sentiment time series and detect event-driven changes (e.g., before/after major news or policy announcements).
-- Extensions: Visualization dashboards, trend alerts (threshold-based), and support for additional languages.
+# Shortener 11e
+[GitHub](https://github.com/tsarkr/shortener_11e) | [Service](https://11e.kr)
+
+PHP 기반 URL 단축 서비스입니다. QR 코드 생성(endroid/qr-code)을 지원하며, 11e.kr에서 운영 중입니다. 다른 사이트에서 쓰려면 도메인과 광고(Kakao AdFit) 설정을 수정해야 합니다.
+
+English: A PHP-based URL shortener with QR code generation, running at 11e.kr.
 
 ---
 

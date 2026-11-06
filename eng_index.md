@@ -2,9 +2,7 @@
 layout: default
 ---
 
-[Kor](./index.html).
-[박사과정생 연구기록](./another-page.html).
-[어플 하루성장노트](./harudiary.html).
+[Kor](./index.html) | [Ph.D. Research Notes](./another-page.html) | [App: 하루성장노트 (Daily Growth Note)](./harudiary.html)
 
 # General Overview
 
@@ -28,17 +26,19 @@ layout: default
 ---
 
 # Univ. of Alberta
-* Digital Scholarship Centre Visiting Scholar(2026. 9. 1. ~ 2027. 5. 31.)
+* Visiting Scholar, Digital Scholarship Centre (2026. 9. 1. ~ 2027. 5. 31.)
 
 # Korea Heritage Agency (formerly Korea Cultural Heritage Foundation)
 
 ## Key Responsibilities --
+* Building AI-ready data infrastructure for national heritage
 * Analyzing the institution's IT status to set mid-to-long-term directions and establish budget plans.
 * Analyzing internal IT requirements and coordinating opinions.
 * Functional analysis and design of individual systems.
 * Calculating development costs for target systems and drafting RFPs (Request for Proposal) / Task Instructions.
 
 ## Information System Projects --
+* 2026: Design of the Intelligent National Heritage Copyright Management System
 * 2022 - 2023: General Manager for the Cheong Wa Dae (Blue House) Opening Online System
 * 2023: General Manager for Phase 1 Construction of the Data Management Business System
 * 2021: General Manager for Korea House Sales Support System Construction
@@ -116,7 +116,7 @@ layout: default
 
 ## Education --
 ### The Academy of Korean Studies (AKS)
-* Ph.D. Candidate - Digital Humanities (Informatics)
+* Ph.D. Student - Humanities Informatics
 * 2024 - Present
 * Digital Humanities
 
@@ -132,21 +132,22 @@ layout: default
 * 1996 - 2002
 * Representative of Startup Club 'A-SHELL'
 
-## Publications --
+## Books --
 - [**Exploring Prior Ontology Models - Digital Humanities Series**](https://wikidocs.net/book/8452)
 - [**Advanced Natural Language Processing Applications - Digital Humanities Series**](https://wikidocs.net/book/17854)
 
 
 ## Publications (Papers) --
 
-### Unlike simple text conversion, this dataset follows the TEI (Text Encoding Initiative) P5 guidelines. It includes detailed metadata, character descriptions, linguistic variations (Hanja/Hangul), and semantic tagging.
-- **Data** [KNoTE](https://zenodo.org/records/18835058)
+### KNoTE (Korean Novel TEI Encoded) Dataset (Park, Seonyeong et al., 2026)
+- Korean novels encoded following the TEI P5 guidelines, with detailed metadata, character descriptions, Hanja/Hangul variations, and semantic tagging
+- **Data:** [Zenodo, doi:10.5281/zenodo.18835058](https://doi.org/10.5281/zenodo.18835058)
 
-### The Imagingation of the Border, Openning the Future of K-Content: A Study on the Korean Studies Imagination of Diaspora in ｢K-Pop Demon Hunters｣ (Jo, Gyungmin)
-- **Journal:** [Diaspora Studies Vol. 19, No. 2 (Issue 38), pp. 164~199](https://tsarkr.github.io/경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
+### The Imagination of the Border, Opening the Future of K-Content: A Study on the Korean Studies Imagination of Diaspora in ｢K-Pop Demon Hunters｣ (Jo, Gyungmin)
+- **Journal:** [Diaspora Studies Vol. 19, No. 2 (Issue 38), pp. 164~199](./경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
 
 ### Analyzing Audience Responses to K-Heritage Channel Video Content Using Text Mining: Focusing on YouTube Comments (Jo, Gyungmin)
-- **Journal:** [Media Convergence Research Issue 38, pp. 7~50](https://tsarkr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
+- **Journal:** [Media Convergence Research Issue 38, pp. 7~50](./텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
 
 ### A Study on Vehicle Queue Measurement Using Region-Based Image Processing (Chu, Yeon-woong; Jo, Gyungmin; Choi, Ki-ho)
 - **Presented At:** The Korea Institute of ITS
@@ -167,45 +168,55 @@ layout: default
 
 # GitHub Projects
 
+## D-CENT (Digital Contextualized Entity & Narrative Technology)
+* **Language:** Python, PHP
+* **Description:** A RAG-based research framework that links March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j, and reconstructs a dated narrative of incidents for each question, with citations to the records.
+* **Key Features:**
+  - Data build pipeline: source files → PostgreSQL/TEI → Neo4j (CIDOC-CRM) graph, with person-name tagging, biographical dictionary links, and the Korean History Thesaurus
+  - Web docent: graph view, Text-to-Cypher, hybrid record retrieval (BM25 + dense + cross-encoder), LLM narrative generation
+  - Evaluation: benchmark, system comparison, expert validation
+* **GitHub:** [tsarkr/D-CENT](https://github.com/tsarkr/D-CENT)
+* **Site:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
+
 ## Darkstar: Professional OWL 2 RL Ontology Editor
 * **Language:** Rust
-* **Description:** Darkstar is a professional Rust-based OWL 2 RL ontology editor and inference engine with SPARQL/DL queries, explanation tools, dynamic plugins, and advanced graph visualization.
+* **Description:** A Rust-based OWL 2 RL ontology editor and inference engine (a Protégé alternative) with SPARQL/DL queries, inference explanations, dynamic plugins, and graph visualization.
 * **Key Features:**
-  - Professional Reasoning Engine: Full OWL 2 RL compliance with high-performance parallel forward-chaining using Rayon
-  - State-of-the-Art Graph Visualization: Multiple layout support (Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid)
+  - Reasoning engine: OWL 2 RL parallel forward-chaining powered by Rayon, with inference justification
+  - Graph visualization: Force-Directed, Hierarchical, Radial, Circular, Concentric, and Grid layouts
   - SPARQL 1.1 and Manchester Syntax DL query support
-  - Inference explanations, dynamic plugins, and Turtle/RDF editing and validation
-* **GitHub:** https://github.com/tsarkr/darkstar
+  - Turtle / RDF/XML / N-Triples I/O, `owl:imports` resolution, undo/redo
+* **GitHub:** [tsarkr/darkstar](https://github.com/tsarkr/darkstar)
+* **Site:** [https://gyungmin.tsar.kr/darkstar/](https://gyungmin.tsar.kr/darkstar/)
 
-## K-Heritage Content Analysis
-* **Language:** Python
-* **Description:** A project that analyzes YouTube comments from the K-heritage.tv channel, examining audience reception of Korean cultural heritage content using text mining techniques.
-* **GitHub:** https://github.com/tsarkr/k-heritage
+## Hexedit
+* **Language:** TypeScript (React, Vite)
+* **Description:** A web-based hexadecimal editor and binary inspection tool that runs in the browser
+* **GitHub:** [tsarkr/hexedit](https://github.com/tsarkr/hexedit)
+* **Site:** [https://gyungmin.tsar.kr/hexedit/](https://gyungmin.tsar.kr/hexedit/)
 
-## K-pop Demon Hunters
+## K-pop Demon Hunters (K-D-H) Comment Analysis
 * **Language:** Python
-* **Description:** K-pop content analysis project
-* **GitHub:** https://github.com/tsarkr/K-D-H
+* **Description:** Tools that collect YouTube playlist comments and analyze and visualize fandom reactions; used for the analysis in the paper on ｢K-Pop Demon Hunters｣.
+* **Key Features:** YouTube Data API comment collection, VADER sentiment analysis, keyword co-occurrence network (GEXF), BERTopic topic modeling
+* **GitHub:** [tsarkr/K-D-H](https://github.com/tsarkr/K-D-H)
+
+## K-Heritage Comment Analysis
+* **Language:** Python
+* **Description:** Collects YouTube comments from the K-heritage.tv channel and analyzes audience reception with text mining; used for the paper on K-Heritage Channel audience responses.
+* **GitHub:** [tsarkr/k-heritage](https://github.com/tsarkr/k-heritage)
 
 ## KCI Scrape
 * **Language:** Python
-* **Description:** A tool for collecting and analyzing Korean Citation Index (KCI) academic papers
-* **GitHub:** https://github.com/tsarkr/kci_scrape
+* **Description:** Collects Korean Citation Index (KCI) paper data and analyzes research trends and co-authorship networks by period in the field of "cultural heritage curation"
+* **GitHub:** [tsarkr/kci_scrape](https://github.com/tsarkr/kci_scrape)
 
-## D-CENT
-* **Language:** Python
-* **Description:** A RAG-based research framework that connects March First Movement records through PostgreSQL, TEI, CIDOC-CRM, and Neo4j to reconstruct dated narratives with citations.
-* **GitHub:** https://github.com/tsarkr/D-CENT
-* **Site:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
+## RedditGo
+* **Language:** Jupyter Notebook, Python
+* **Description:** Compares sentiment before and after COVID-19 in Reddit posts and comments about Korea, China, and Japan, using seven-emotion classification, BERTopic topic modeling, and TF-IDF keyword extraction.
+* **GitHub:** [tsarkr/redditgo](https://github.com/tsarkr/redditgo)
 
-## URL Shortener
+## Shortener 11e
 * **Language:** PHP
-* **Description:** A PHP-based URL shortening service
-* **GitHub:** https://github.com/tsarkr/shortener_11e
-
-## Reddit Dataset Analysis
-* **Language:** Jupyter Notebook
-* **Description:** Reddit Comments Dataset analysis - @Korea @China @Japan related data analysis
-* **GitHub:** https://github.com/tsarkr/redditgo
-
----
+* **Description:** A PHP-based URL shortening service with QR code generation, running at [11e.kr](https://11e.kr).
+* **GitHub:** [tsarkr/shortener_11e](https://github.com/tsarkr/shortener_11e)

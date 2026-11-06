@@ -2,9 +2,7 @@
 layout: default
 ---
 
-[Eng](./eng_index.html).
-[박사과정생 연구기록](./another-page.html).
-[어플 하루성장노트](./harudiary.html).
+[Eng](./eng_index.html) | [박사과정생 연구기록](./another-page.html) | [어플 하루성장노트](./harudiary.html)
 
 # 일반사항
 
@@ -136,14 +134,15 @@ layout: default
 
 ## 논문 목록 --
 
-### Unlike simple text conversion, this dataset follows the TEI (Text Encoding Initiative) P5 guidelines. It includes detailed metadata, character descriptions, linguistic variations (Hanja/Hangul), and semantic tagging.
-- **데이터** [KNoTE](https://zenodo.org/records/18835058)
+### KNoTE (Korean Novel TEI Encoded) 데이터셋 (박선영 외 공동저자, 2026)
+- TEI P5 가이드라인에 따라 한국 소설을 인코딩한 데이터셋. 상세 메타데이터, 등장인물 기술, 한자·한글 표기 변이, 의미 태깅 포함
+- **데이터** [Zenodo, doi:10.5281/zenodo.18835058](https://doi.org/10.5281/zenodo.18835058)
 
 ### 경계의 상상력, K-콘텐츠의 미래를 열다: ｢케이팝 데몬 헌터스｣에 나타난 디아스포라의 한국학적 상상력 (조경민)
-- **학술지** [디아스포라연구 제19권 제2호(제38집) 164~199쪽](https://tsarkr.github.io/경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
+- **학술지** [디아스포라연구 제19권 제2호(제38집) 164~199쪽](./경계의%20상상력,%20K-콘텐츠의%20미래를%20열다.pdf)
 
 ### 텍스트마이닝을 이용한 국가유산채널 영상 콘텐츠 수용자 반응 분석: 유튜브 댓글 중심으로 (조경민)
-- **학술지** [미디어융합연구 제38집 7~50쪽](https://tsarkr.github.io/텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
+- **학술지** [미디어융합연구 제38집 7~50쪽](./텍스트마이닝을%20이용한%20국가유산채널%20영상콘텐츠%20수용자%20반응%20분석.pdf)
 
 ### 영역기반 영상 처리를 이용한 차량 대기열 측정에 관한 연구 (추연웅, 조경민, 최기호)
 - **발표 학회:** 한국ITS학회  
@@ -164,45 +163,55 @@ layout: default
 
 # GitHub 프로젝트
 
+## D-CENT (Digital Contextualized Entity & Narrative Technology)
+* **언어:** Python, PHP
+* **설명:** 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고, 질문마다 날짜가 있는 사건 서사를 기록 인용과 함께 재구성하는 RAG 기반 연구 프레임워크입니다.
+* **주요 기능:**
+  - 데이터 구축 파이프라인: 원천 자료 → PostgreSQL/TEI → Neo4j(CIDOC-CRM) 그래프, 인명 태깅·인물사전 연계·한국사 시소러스 연결
+  - 웹 도슨트: 그래프 조회, Text-to-Cypher, 하이브리드 기록 검색(BM25 + dense + cross-encoder), LLM 서사 생성
+  - 평가: 벤치마크, 시스템 비교, 전문가 검증
+* **GitHub:** [tsarkr/D-CENT](https://github.com/tsarkr/D-CENT)
+* **SITE:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
+
 ## Darkstar: Professional OWL 2 RL Ontology Editor
 * **언어:** Rust
-* **설명:** Darkstar는 Rust로 개발된 전문 OWL 2 RL 온톨로지 편집기이자 추론 엔진입니다. SPARQL 및 DL 쿼리, 추론 설명, 동적 플러그인, 고급 그래프 시각화 기능을 제공합니다.
+* **설명:** Rust로 개발한 OWL 2 RL 온톨로지 편집기이자 추론 엔진입니다(Protégé 대안). SPARQL 및 DL 쿼리, 추론 설명, 동적 플러그인, 그래프 시각화 기능을 제공합니다.
 * **주요 기능:**
-  - Professional Reasoning Engine: Rayon을 사용한 고성능 병렬 Forward-chaining으로 OWL 2 RL 완벽 준수
-  - State-of-the-Art Graph Visualization: 다양한 레이아웃 지원 (Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid)
+  - 추론 엔진: Rayon 기반 병렬 Forward-chaining으로 OWL 2 RL 지원, 추론 근거(Justification) 추적
+  - 그래프 시각화: Force-Directed, Hierarchical, Radial, Circular, Concentric, Grid 레이아웃
   - SPARQL 1.1 및 Manchester Syntax DL Query 지원
-  - 추론 결과 설명, 동적 플러그인, Turtle/RDF 편집 및 검증 지원
-* **GitHub:** https://github.com/tsarkr/darkstar
+  - Turtle / RDF/XML / N-Triples 입출력, `owl:imports` 처리, Undo/Redo
+* **GitHub:** [tsarkr/darkstar](https://github.com/tsarkr/darkstar)
+* **SITE:** [https://gyungmin.tsar.kr/darkstar/](https://gyungmin.tsar.kr/darkstar/)
 
-## K-Heritage Content Analysis
-* **언어:** Python
-* **설명:** K-heritage.tv YouTube 채널의 댓글 데이터를 분석하는 프로젝트로, 한국 문화유산 콘텐츠에 대한 수용자 반응을 텍스트 마이닝 기법으로 분석합니다.
-* **GitHub:** https://github.com/tsarkr/k-heritage
+## Hexedit
+* **언어:** TypeScript (React, Vite)
+* **설명:** 브라우저에서 동작하는 웹 기반 16진수(Hex) 편집기 및 바이너리 확인 도구
+* **GitHub:** [tsarkr/hexedit](https://github.com/tsarkr/hexedit)
+* **SITE:** [https://gyungmin.tsar.kr/hexedit/](https://gyungmin.tsar.kr/hexedit/)
 
-## K-pop Demon Hunters
+## K-pop Demon Hunters (K-D-H) 댓글 분석
 * **언어:** Python
-* **설명:** K-pop 콘텐츠 분석 프로젝트
-* **GitHub:** https://github.com/tsarkr/K-D-H
+* **설명:** 유튜브 플레이리스트 댓글을 수집해 팬덤 반응을 분석·시각화하는 도구 모음입니다. 「경계의 상상력, K-콘텐츠의 미래를 열다」 논문의 분석에 사용했습니다.
+* **주요 기능:** YouTube Data API 댓글 수집, VADER 감정 분석, 키워드 동시출현 네트워크(GEXF), BERTopic 토픽 모델링
+* **GitHub:** [tsarkr/K-D-H](https://github.com/tsarkr/K-D-H)
+
+## K-Heritage 댓글 분석
+* **언어:** Python
+* **설명:** 국가유산채널(K-heritage.tv) 유튜브 댓글을 수집하고 텍스트 마이닝으로 수용자 반응을 분석하는 프로젝트입니다. 「텍스트마이닝을 이용한 국가유산채널 영상 콘텐츠 수용자 반응 분석」 논문의 분석에 사용했습니다.
+* **GitHub:** [tsarkr/k-heritage](https://github.com/tsarkr/k-heritage)
 
 ## KCI Scrape
 * **언어:** Python
-* **설명:** KCI(Korean Citation Index) 논문 데이터 수집 및 분석 도구
-* **GitHub:** https://github.com/tsarkr/kci_scrape
+* **설명:** KCI(한국학술지인용색인) 논문 데이터를 수집해 "문화유산 큐레이션" 분야의 연구 동향과 기간별 공저 네트워크를 분석·시각화하는 도구
+* **GitHub:** [tsarkr/kci_scrape](https://github.com/tsarkr/kci_scrape)
 
-## D-CENT
-* **언어:** Python
-* **설명:** 3·1운동 기록을 PostgreSQL, TEI, CIDOC-CRM, Neo4j로 연결하고 질문별 역사 서사를 인용과 함께 재구성하는 RAG 기반 연구 프레임워크입니다.
-* **GitHub:** https://github.com/tsarkr/D-CENT
-* **SITE:** [https://gyungmin.tsar.kr/D-CENT/](https://gyungmin.tsar.kr/D-CENT/)
+## RedditGo
+* **언어:** Jupyter Notebook, Python
+* **설명:** Reddit의 한국·중국·일본 관련 게시물과 댓글을 대상으로 COVID-19 전후 감정 변화를 비교하는 프로젝트. 7가지 감정 분류와 BERTopic 토픽 모델링, TF-IDF 키워드 추출을 수행합니다.
+* **GitHub:** [tsarkr/redditgo](https://github.com/tsarkr/redditgo)
 
-## URL Shortener
+## Shortener 11e
 * **언어:** PHP
-* **설명:** PHP 기반 URL 단축 서비스
-* **GitHub:** https://github.com/tsarkr/shortener_11e
-
-## Reddit Dataset Analysis
-* **언어:** Jupyter Notebook
-* **설명:** Reddit 댓글 데이터셋 - @Korea @China @Japan 관련 데이터 분석
-* **GitHub:** https://github.com/tsarkr/redditgo
-
----
+* **설명:** PHP 기반 URL 단축 서비스(QR 코드 생성 포함). [11e.kr](https://11e.kr)에서 운영 중입니다.
+* **GitHub:** [tsarkr/shortener_11e](https://github.com/tsarkr/shortener_11e)
