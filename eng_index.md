@@ -116,8 +116,8 @@ layout: default
 
 ## Education --
 ### The Academy of Korean Studies (AKS)
-* Ph.D. Student - Humanities Informatics
-* 2024 - Present
+* Ph.D. Candidate (Coursework Completed) - Humanities Informatics
+* 2024 - Coursework Completed
 * Digital Humanities
 
 ### Kwangwoon University, Graduate School
